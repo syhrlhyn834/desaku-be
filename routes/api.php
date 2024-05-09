@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\InformasiPublikController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfilDesaController;
@@ -25,6 +26,9 @@ Route::middleware(['cors'])->group(function () {
 
     Route::get('/sejarah', [ProfilDesaController::class, 'getSejarah']);
     Route::post('/sejarah', [ProfilDesaController::class, 'updateSejarah']);
+
+    Route::get('/news', [InformasiPublikController::class, 'getNews']);
+    Route::post('/news', [InformasiPublikController::class, 'addNews']);
 
     // Upload image
     Route::post('/image', [ImageController::class, 'upload']);

@@ -26,8 +26,10 @@ class InformasiPublikController extends Controller
     {
         $data = DB::table('beritas')->where("uuid", $id)->update([
             "title" => $req->input("title"),
+            "description" => $req->input("description"),
             "category" => $req->input("category"),
-            "content" => $req->input("content")
+            "content" => $req->input("content"),
+            "thumbnail" => $req->input("thumbnail")
         ]);
 
         return response()->json($data);
@@ -39,8 +41,10 @@ class InformasiPublikController extends Controller
 
         $berita->uuid = uuid_create();
         $berita->title = $req->input("title");
+        $berita->description = $req->input("description");
         $berita->category = $req->input("category");
         $berita->content = $req->input("content");
+        $berita->thumbnail = $req->input("thumbnail");
 
         $berita->save();
 

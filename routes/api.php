@@ -41,4 +41,5 @@ Route::middleware(['cors'])->group(function () {
 
     // Upload image
     Route::post('/image', [ImageController::class, 'upload']);
+    Route::delete('/image/{file}', [ImageController::class, 'remove']);
 });

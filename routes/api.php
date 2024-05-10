@@ -29,6 +29,15 @@ Route::middleware(['cors'])->group(function () {
 
     Route::get('/news', [InformasiPublikController::class, 'getNews']);
     Route::post('/news', [InformasiPublikController::class, 'addNews']);
+    Route::patch('/news/{id}', [InformasiPublikController::class, 'updateNews']);
+    Route::get('/news/{id}', [InformasiPublikController::class, 'findNews']);
+    Route::delete('/news/{id}', [InformasiPublikController::class, 'removeNews']);
+
+    Route::get('/news-category', [InformasiPublikController::class, 'getNewsCategory']);
+    Route::get('/news-category/{id}', [InformasiPublikController::class, 'findNewsCategory']);
+    Route::patch('/news-category/{id}', [InformasiPublikController::class, 'updateNewsCategory']);
+    Route::post('/news-category', [InformasiPublikController::class, 'addNewsCategory']);
+    Route::delete('/news-category/{id}', [InformasiPublikController::class, 'removeNewsCategory']);
 
     // Upload image
     Route::post('/image', [ImageController::class, 'upload']);

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GambarBerandaController;
 use App\Http\Controllers\InformasiPublikController;
+use App\Http\Controllers\LokasiDesaController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfilDesaController;
@@ -43,6 +44,9 @@ Route::middleware(['cors'])->group(function () {
     Route::get('/image-homepage', [GambarBerandaController::class, 'getImageHomepage']);
     Route::post('/image-homepage', [GambarBerandaController::class, 'addImageHomepage']);
     Route::delete('/image-homepage/{id}', [GambarBerandaController::class, 'removeImageHomepage']);
+
+    Route::get('/location', [LokasiDesaController::class, 'getLocation']);
+    Route::patch('/location', [LokasiDesaController::class, 'updateLocation']);
 
     // Upload image
     Route::post('/image', [ImageController::class, 'upload']);

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GambarBerandaController;
 use App\Http\Controllers\InformasiPublikController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -38,6 +39,10 @@ Route::middleware(['cors'])->group(function () {
     Route::patch('/news-category/{id}', [InformasiPublikController::class, 'updateNewsCategory']);
     Route::post('/news-category', [InformasiPublikController::class, 'addNewsCategory']);
     Route::delete('/news-category/{id}', [InformasiPublikController::class, 'removeNewsCategory']);
+
+    Route::get('/image-homepage', [GambarBerandaController::class, 'getImageHomepage']);
+    Route::post('/image-homepage', [GambarBerandaController::class, 'addImageHomepage']);
+    Route::delete('/image-homepage/{id}', [GambarBerandaController::class, 'removeImageHomepage']);
 
     // Upload image
     Route::post('/image', [ImageController::class, 'upload']);

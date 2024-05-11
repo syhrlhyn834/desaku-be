@@ -3,28 +3,27 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Berita;
 use Illuminate\Support\Facades\DB;
 
 class InformasiPublikController extends Controller
 {
     public function getNews()
     {
-        $data = Berita::get();
+        $data =  DB::table('berita')->get();
 
         return response()->json($data);
     }
 
     public function findNews($id)
     {
-        $data = DB::table('beritas')->where("uuid", $id)->first();
+        $data = DB::table('berita')->where("uuid", $id)->first();
 
         return response()->json($data);
     }
 
     public function updateNews(Request $req, $id)
     {
-        $data = DB::table('beritas')->where("uuid", $id)->update([
+        $data = DB::table('berita')->where("uuid", $id)->update([
             "title" => $req->input("title"),
             "description" => $req->input("description"),
             "category" => $req->input("category"),
@@ -37,23 +36,21 @@ class InformasiPublikController extends Controller
 
     public function addNews(Request $req)
     {
-        $berita = new Berita();
-
-        $berita->uuid = uuid_create();
-        $berita->title = $req->input("title");
-        $berita->description = $req->input("description");
-        $berita->category = $req->input("category");
-        $berita->content = $req->input("content");
-        $berita->thumbnail = $req->input("thumbnail");
-
-        $berita->save();
+        DB::table('berita')->insert([
+            "uuid" => uuid_create(),
+            "title" => $req->input("title"),
+            "description" => $req->input("description"),
+            "category" => $req->input("category"),
+            "content" => $req->input("content"),
+            "thumbnail" => $req->input("thumbnail"),
+        ]);
 
         return response()->json(['success' => true]);
     }
 
     public function removeNews(Request $req, $id)
     {
-        Berita::where("uuid", $id)->delete();
+        DB::table('berita')->where("uuid", $id)->delete();
 
         return response()->json(['success' => true]);
     }

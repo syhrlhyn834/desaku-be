@@ -3,20 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\ProfilDesa;
+use Illuminate\Support\Facades\DB;
 
 class ProfilDesaController extends Controller
 {
     public function getVisi()
     {
-        $data = ProfilDesa::where("uuid", "1")->first("visi");
+        $data = DB::table('profil_desa')->where("uuid", "1")->first("visi");
 
         return response()->json($data);
     }
 
     public function updateVisi(Request $req)
     {
-        ProfilDesa::where("uuid", 1)->update([
+        DB::table('profil_desa')->where("uuid", 1)->update([
             "visi" => $req->input("content")
         ]);
 
@@ -25,14 +25,14 @@ class ProfilDesaController extends Controller
 
     public function getSejarah()
     {
-        $data = ProfilDesa::where("uuid", "1")->first("sejarah");
+        $data = DB::table('profil_desa')->where("uuid", "1")->first("sejarah");
 
         return response()->json($data);
     }
 
     public function updateSejarah(Request $req)
     {
-        ProfilDesa::where("uuid", 1)->update([
+        DB::table('profil_desa')->where("uuid", 1)->update([
             "sejarah" => $req->input("content")
         ]);
 
@@ -41,14 +41,14 @@ class ProfilDesaController extends Controller
 
     public function getTentang()
     {
-        $data = ProfilDesa::where("uuid", "1")->first("tentang");
+        $data = DB::table('profil_desa')->where("uuid", "1")->first("tentang");
 
         return response()->json($data);
     }
 
     public function updateTentang(Request $req)
     {
-        ProfilDesa::where("uuid", 1)->update([
+        DB::table('profil_desa')->where("uuid", 1)->update([
             "tentang" => $req->input("content")
         ]);
 

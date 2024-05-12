@@ -3,10 +3,11 @@
 use App\Http\Controllers\GambarBerandaController;
 use App\Http\Controllers\InformasiPublikController;
 use App\Http\Controllers\LokasiDesaController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfilDesaController;
 use App\Http\Controllers\ImageController;
+use App\Http\Controllers\GambarGaleriController;
+use App\Http\Controllers\VideoGaleriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,14 @@ Route::middleware(['cors'])->group(function () {
     Route::get('/image-homepage', [GambarBerandaController::class, 'getImageHomepage']);
     Route::post('/image-homepage', [GambarBerandaController::class, 'addImageHomepage']);
     Route::delete('/image-homepage/{id}', [GambarBerandaController::class, 'removeImageHomepage']);
+
+    Route::get('/image-gallery', [GambarGaleriController::class, 'getImageGallery']);
+    Route::post('/image-gallery', [GambarGaleriController::class, 'addImageGallery']);
+    Route::delete('/image-gallery/{id}', [GambarGaleriController::class, 'removeImageGallery']);
+
+    Route::get('/video-gallery', [VideoGaleriController::class, 'getVideoGallery']);
+    Route::post('/video-gallery', [VideoGaleriController::class, 'addVideoGallery']);
+    Route::delete('/video-gallery/{id}', [VideoGaleriController::class, 'removeVideoGallery']);
 
     Route::get('/location', [LokasiDesaController::class, 'getLocation']);
     Route::patch('/location', [LokasiDesaController::class, 'updateLocation']);

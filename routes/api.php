@@ -36,6 +36,12 @@ Route::middleware(['cors'])->group(function () {
     Route::get('/news/{id}', [InformasiPublikController::class, 'findNews']);
     Route::delete('/news/{id}', [InformasiPublikController::class, 'removeNews']);
 
+    Route::get('/announcement', [InformasiPublikController::class, 'getAnnouncement']);
+    Route::post('/announcement', [InformasiPublikController::class, 'addAnnouncement']);
+    Route::patch('/announcement/{id}', [InformasiPublikController::class, 'updateAnnouncement']);
+    Route::get('/announcement/{id}', [InformasiPublikController::class, 'findAnnouncement']);
+    Route::delete('/announcement/{id}', [InformasiPublikController::class, 'removeAnnouncement']);
+
     Route::get('/news-category', [InformasiPublikController::class, 'getNewsCategory']);
     Route::get('/news-category/{id}', [InformasiPublikController::class, 'findNewsCategory']);
     Route::patch('/news-category/{id}', [InformasiPublikController::class, 'updateNewsCategory']);

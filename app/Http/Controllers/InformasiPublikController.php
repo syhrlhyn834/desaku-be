@@ -14,9 +14,22 @@ class InformasiPublikController extends Controller
         return response()->json($data);
     }
 
+    public function getAnnouncement()
+    {
+        $data =  DB::table('pengumuman')->get();
+
+        return response()->json($data);
+    }
     public function findNews($id)
     {
         $data = DB::table('berita')->where("uuid", $id)->first();
+
+        return response()->json($data);
+    }
+
+    public function findAnnouncement($id)
+    {
+        $data = DB::table('pengumuman')->where("uuid", $id)->first();
 
         return response()->json($data);
     }
@@ -33,14 +46,39 @@ class InformasiPublikController extends Controller
 
         return response()->json($data);
     }
+    public function updateAnnouncement(Request $req, $id)
+    {
+        $data = DB::table('pengumuman')->where("uuid", $id)->update([
+            "title" => $req->input("title"),
+            "description" => $req->input("description"),
+            "content" => $req->input("content"),
+            "thumbnail" => $req->input("thumbnail")
+        ]);
+
+        return response()->json($data);
+    }
 
     public function addNews(Request $req)
     {
         DB::table('berita')->insert([
             "uuid" => uuid_create(),
             "title" => $req->input("title"),
+            "slug" => $req->input("slug"),
             "description" => $req->input("description"),
             "category" => $req->input("category"),
+            "content" => $req->input("content"),
+            "thumbnail" => $req->input("thumbnail"),
+        ]);
+
+        return response()->json(['success' => true]);
+    }
+
+    public function addAnnouncement(Request $req)
+    {
+        DB::table('pengumuman')->insert([
+            "uuid" => uuid_create(),
+            "title" => $req->input("title"),
+            "description" => $req->input("description"),
             "content" => $req->input("content"),
             "thumbnail" => $req->input("thumbnail"),
         ]);
@@ -51,6 +89,13 @@ class InformasiPublikController extends Controller
     public function removeNews(Request $req, $id)
     {
         DB::table('berita')->where("uuid", $id)->delete();
+
+        return response()->json(['success' => true]);
+    }
+
+    public function removeAnnouncement(Request $req, $id)
+    {
+        DB::table('pengumuman')->where("uuid", $id)->delete();
 
         return response()->json(['success' => true]);
     }

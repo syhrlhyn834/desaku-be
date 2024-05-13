@@ -8,6 +8,7 @@ use App\Http\Controllers\ProfilDesaController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\GambarGaleriController;
 use App\Http\Controllers\VideoGaleriController;
+use App\Http\Controllers\AuthController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,4 +67,7 @@ Route::middleware(['cors'])->group(function () {
     // Upload image
     Route::post('/image', [ImageController::class, 'upload']);
     Route::delete('/image/{file}', [ImageController::class, 'remove']);
+
+    // Auth
+    Route::post('/auth/login', [AuthController::class, 'login']);
 });

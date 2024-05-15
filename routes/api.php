@@ -9,6 +9,8 @@ use App\Http\Controllers\ImageController;
 use App\Http\Controllers\GambarGaleriController;
 use App\Http\Controllers\VideoGaleriController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\FooterController;
+use App\Http\Controllers\HeaderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +37,7 @@ Route::middleware(['cors'])->group(function () {
     Route::post('/news', [InformasiPublikController::class, 'addNews']);
     Route::patch('/news/{id}', [InformasiPublikController::class, 'updateNews']);
     Route::get('/news/{id}', [InformasiPublikController::class, 'findNews']);
+    Route::get('/news/slug/{id}', [InformasiPublikController::class, 'findNewsBySlug']);
     Route::delete('/news/{id}', [InformasiPublikController::class, 'removeNews']);
 
     Route::get('/announcement', [InformasiPublikController::class, 'getAnnouncement']);
@@ -42,6 +45,7 @@ Route::middleware(['cors'])->group(function () {
     Route::patch('/announcement/{id}', [InformasiPublikController::class, 'updateAnnouncement']);
     Route::get('/announcement/{id}', [InformasiPublikController::class, 'findAnnouncement']);
     Route::delete('/announcement/{id}', [InformasiPublikController::class, 'removeAnnouncement']);
+    Route::get('/announcement/slug/{id}', [InformasiPublikController::class, 'findAnnouncementBySlug']);
 
     Route::get('/news-category', [InformasiPublikController::class, 'getNewsCategory']);
     Route::get('/news-category/{id}', [InformasiPublikController::class, 'findNewsCategory']);
@@ -64,8 +68,15 @@ Route::middleware(['cors'])->group(function () {
     Route::get('/location', [LokasiDesaController::class, 'getLocation']);
     Route::patch('/location', [LokasiDesaController::class, 'updateLocation']);
 
+    Route::get('/footer', [FooterController::class, 'getFooter']);
+    Route::patch('/footer', [FooterController::class, 'updateFooter']);
+
+    Route::get('/header', [HeaderController::class, 'getHeader']);
+    Route::patch('/header', [HeaderController::class, 'updateHeader']);
+
     // Upload image
     Route::post('/image', [ImageController::class, 'upload']);
+    Route::get('/image', [ImageController::class, 'get']);
     Route::delete('/image/{file}', [ImageController::class, 'remove']);
 
     // Auth

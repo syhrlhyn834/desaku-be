@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Carbon;
 
 class InformasiPublikController extends Controller
 {
@@ -27,9 +28,23 @@ class InformasiPublikController extends Controller
         return response()->json($data);
     }
 
+    public function findNewsBySlug($slug)
+    {
+        $data = DB::table('berita')->where("slug", $slug)->first();
+
+        return response()->json($data);
+    }
+
     public function findAnnouncement($id)
     {
         $data = DB::table('pengumuman')->where("uuid", $id)->first();
+
+        return response()->json($data);
+    }
+
+    public function findAnnouncementBySlug($slug)
+    {
+        $data = DB::table('pengumuman')->where("slug", $slug)->first();
 
         return response()->json($data);
     }
@@ -41,7 +56,8 @@ class InformasiPublikController extends Controller
             "description" => $req->input("description"),
             "category" => $req->input("category"),
             "content" => $req->input("content"),
-            "thumbnail" => $req->input("thumbnail")
+            "thumbnail" => $req->input("thumbnail"),
+            "updated_at" => Carbon::now()
         ]);
 
         return response()->json($data);
@@ -78,6 +94,7 @@ class InformasiPublikController extends Controller
         DB::table('pengumuman')->insert([
             "uuid" => uuid_create(),
             "title" => $req->input("title"),
+            "slug" => $req->input("slug"),
             "description" => $req->input("description"),
             "content" => $req->input("content"),
             "thumbnail" => $req->input("thumbnail"),

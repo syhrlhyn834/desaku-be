@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\DB;
 
 class ImageController extends Controller
 {
@@ -19,6 +20,17 @@ class ImageController extends Controller
         } else {
             return "No image uploaded!";
         }
+    }
+
+    public function get()
+    {
+        $data = Storage::files('public'); // Get all files within a directory
+
+        $data = array_map(function ($val) {
+            return "http://127.0.0.1:8000/" . str_replace("public", "storage", $val) ;
+        }, $data);
+
+        return response()->json($data);
     }
 
     public function remove($file)

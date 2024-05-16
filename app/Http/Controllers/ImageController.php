@@ -24,7 +24,12 @@ class ImageController extends Controller
 
     public function get()
     {
-        $data = Storage::files('public'); // Get all files within a directory
+        $data = Storage::files('public');
+
+        $data = array_filter($data, function($file) {
+            $extension = pathinfo($file, PATHINFO_EXTENSION);
+            return in_array($extension, ['jpg', 'jpeg', 'png', 'gif', 'bmp']);
+        });
 
         $data = array_map(function ($val) {
             return "http://127.0.0.1:8000/" . str_replace("public", "storage", $val) ;

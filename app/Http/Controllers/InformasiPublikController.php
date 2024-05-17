@@ -19,12 +19,6 @@ class InformasiPublikController extends Controller
         return response()->json($data);
     }
 
-    public function getAnnouncement()
-    {
-        $data = DB::table('pengumuman')->get();
-
-        return response()->json($data);
-    }
     public function findNews($id)
     {
         $data = DB::table('berita')->where("uuid", $id)->first();
@@ -35,6 +29,27 @@ class InformasiPublikController extends Controller
     public function findNewsBySlug($slug)
     {
         $data = DB::table('berita')->where("slug", $slug)->first();
+
+        return response()->json($data);
+    }
+
+    public function updateNews(Request $req, $id)
+    {
+        $data = DB::table('berita')->where("uuid", $id)->update([
+            "title" => $req->input("title"),
+            "description" => $req->input("description"),
+            "category" => $req->input("category"),
+            "content" => $req->input("content"),
+            "thumbnail" => $req->input("thumbnail"),
+            "updated_at" => Carbon::now()
+        ]);
+
+        return response()->json($data);
+    }
+
+    public function getAnnouncement()
+    {
+        $data = DB::table('pengumuman')->get();
 
         return response()->json($data);
     }
@@ -53,19 +68,21 @@ class InformasiPublikController extends Controller
         return response()->json($data);
     }
 
-    public function updateNews(Request $req, $id)
+    public function addAnnouncement(Request $req)
     {
-        $data = DB::table('berita')->where("uuid", $id)->update([
+        DB::table('pengumuman')->insert([
+            "uuid" => uuid_create(),
             "title" => $req->input("title"),
+            "slug" => $req->input("slug"),
             "description" => $req->input("description"),
-            "category" => $req->input("category"),
             "content" => $req->input("content"),
-            "thumbnail" => $req->input("thumbnail"),
+            "created_at" => Carbon::now(),
             "updated_at" => Carbon::now()
         ]);
 
-        return response()->json($data);
+        return response()->json(['success' => true]);
     }
+
     public function updateAnnouncement(Request $req, $id)
     {
         $data = DB::table('pengumuman')->where("uuid", $id)->update([
@@ -76,6 +93,13 @@ class InformasiPublikController extends Controller
         ]);
 
         return response()->json($data);
+    }
+
+    public function removeAnnouncement(Request $req, $id)
+    {
+        DB::table('pengumuman')->where("uuid", $id)->delete();
+
+        return response()->json(['success' => true]);
     }
 
     public function addNews(Request $req)
@@ -95,21 +119,6 @@ class InformasiPublikController extends Controller
         return response()->json(['success' => true]);
     }
 
-    public function addAnnouncement(Request $req)
-    {
-        DB::table('pengumuman')->insert([
-            "uuid" => uuid_create(),
-            "title" => $req->input("title"),
-            "slug" => $req->input("slug"),
-            "description" => $req->input("description"),
-            "content" => $req->input("content"),
-            "created_at" => Carbon::now(),
-            "updated_at" => Carbon::now()
-        ]);
-
-        return response()->json(['success' => true]);
-    }
-
     public function removeNews(Request $req, $id)
     {
         DB::table('berita')->where("uuid", $id)->delete();
@@ -117,12 +126,6 @@ class InformasiPublikController extends Controller
         return response()->json(['success' => true]);
     }
 
-    public function removeAnnouncement(Request $req, $id)
-    {
-        DB::table('pengumuman')->where("uuid", $id)->delete();
-
-        return response()->json(['success' => true]);
-    }
 
     public function getNewsCategory()
     {

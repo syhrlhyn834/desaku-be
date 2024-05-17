@@ -38,7 +38,7 @@ INSERT INTO `footer` (`uuid`, `profile`, `address`, `instagram`, `facebook`, `wh
 CREATE TABLE IF NOT EXISTS `gambar_beranda` (
   `uuid` char(50) DEFAULT NULL,
   `description` varchar(50) DEFAULT NULL,
-  `url` char(50) DEFAULT NULL,
+  `url` varchar(200) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB;
@@ -51,7 +51,7 @@ INSERT INTO `gambar_beranda` (`uuid`, `description`, `url`, `created_at`, `updat
 CREATE TABLE IF NOT EXISTS `gambar_galeri` (
   `uuid` char(50) DEFAULT NULL,
   `description` varchar(50) DEFAULT NULL,
-  `url` char(50) DEFAULT NULL
+  `url` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB;
 
 INSERT INTO `gambar_galeri` (`uuid`, `description`, `url`) VALUES

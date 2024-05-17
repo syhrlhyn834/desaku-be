@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS `berita` (
   `slug` varchar(200) NOT NULL DEFAULT '',
   `description` varchar(200) DEFAULT NULL,
   `category` text,
-  `thumbnail` varchar(50) DEFAULT NULL,
+  `thumbnail` varchar(200) DEFAULT NULL,
   `content` text,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL

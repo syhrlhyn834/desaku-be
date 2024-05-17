@@ -12,23 +12,15 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FooterController;
 use App\Http\Controllers\HeaderController;
 
-/*
-|--------------------------------------------------------------------------
-| API Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register API routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "api" middleware group. Make something great!
-|
-*/
-
 Route::middleware(['cors'])->group(function () {
+    Route::middleware(['jwt'])->group(function () {
+        Route::post('/visi', [ProfilDesaController::class, 'updateVisi']);
+        Route::post('/tentang', [ProfilDesaController::class, 'updateTentang']);
+    });
+
     Route::get('/visi', [ProfilDesaController::class, 'getVisi']);
-    Route::post('/visi', [ProfilDesaController::class, 'updateVisi']);
 
     Route::get('/tentang', [ProfilDesaController::class, 'getTentang']);
-    Route::post('/tentang', [ProfilDesaController::class, 'updateTentang']);
 
     Route::get('/sejarah', [ProfilDesaController::class, 'getSejarah']);
     Route::post('/sejarah', [ProfilDesaController::class, 'updateSejarah']);

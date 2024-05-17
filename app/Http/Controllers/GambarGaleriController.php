@@ -14,6 +14,13 @@ class GambarGaleriController extends Controller
         return response()->json($data);
     }
 
+    public function findImageGallery($id)
+    {
+        $data = DB::table('gambar_galeri')->where("uuid", $id)->first();
+
+        return response()->json($data);
+    }
+
     public function addImageGallery(Request $req)
     {
         DB::table('gambar_galeri')->insert([

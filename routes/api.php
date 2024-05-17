@@ -60,6 +60,7 @@ Route::middleware(['cors'])->group(function () {
     Route::get('/image-gallery', [GambarGaleriController::class, 'getImageGallery']);
     Route::post('/image-gallery', [GambarGaleriController::class, 'addImageGallery']);
     Route::delete('/image-gallery/{id}', [GambarGaleriController::class, 'removeImageGallery']);
+    Route::get('/image-gallery/{id}', [GambarGaleriController::class, 'findImageGallery']);
 
     Route::get('/video-gallery', [VideoGaleriController::class, 'getVideoGallery']);
     Route::post('/video-gallery', [VideoGaleriController::class, 'addVideoGallery']);

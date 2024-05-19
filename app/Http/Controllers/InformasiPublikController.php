@@ -145,7 +145,6 @@ class InformasiPublikController extends Controller
     {
         $data = DB::table('kategori_berita')->where("uuid", $id)->update([
             "name" => $req->input("name"),
-            "updated_at" => Carbon::now(),
         ]);
 
         return response()->json($data);
@@ -155,9 +154,7 @@ class InformasiPublikController extends Controller
     {
         DB::table('kategori_berita')->insert([
             "uuid" => uuid_create(),
-            "name" => $req->input("name"),
-            "created_at" => Carbon::now(),
-            "updated_at" => Carbon::now(),
+            "name" => $req->input("name")
         ]);
 
         return response()->json(['success' => true]);

@@ -12,7 +12,9 @@ class AuthController extends Controller
     public function login(Request $req)
     {
         $key = 'desaku89ajs';
-        $payload = [];
+        $payload = [
+            "email" => $req->input("email")
+        ];
 
         $isUserExist = DB::table('user')
             ->where("email", $req->input("email"))
@@ -26,5 +28,16 @@ class AuthController extends Controller
         } else {
             return response()->json(['error' => 'Unauthorized'], 403);
         }
+    }
+
+    public function findAdmin(Request $req)
+    {
+        $decoded = JWT::decode($req->bearerToken(), new Key('desaku89ajs', 'HS256'));
+
+        $user = DB::table('user')
+            ->where("email", $decoded->email)
+            ->first();
+
+        return response()->json($user);
     }
 }

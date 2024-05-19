@@ -25,11 +25,11 @@ CREATE TABLE IF NOT EXISTS `footer` (
   `uuid` char(50) DEFAULT NULL,
   `profile` text,
   `address` text,
-  `instagram` varchar(50) DEFAULT NULL,
-  `facebook` varchar(50) DEFAULT NULL,
-  `whatsapp` varchar(50) DEFAULT NULL,
-  `twitter` varchar(50) DEFAULT NULL,
-  `youtube` varchar(50) DEFAULT NULL
+  `instagram` varchar(200) DEFAULT NULL,
+  `facebook` varchar(200) DEFAULT NULL,
+  `whatsapp` varchar(200) DEFAULT NULL,
+  `twitter` varchar(200) DEFAULT NULL,
+  `youtube` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB;
 
 INSERT INTO `footer` (`uuid`, `profile`, `address`, `instagram`, `facebook`, `whatsapp`, `twitter`, `youtube`) VALUES
@@ -50,7 +50,7 @@ INSERT INTO `gambar_beranda` (`uuid`, `description`, `url`, `created_at`, `updat
 
 CREATE TABLE IF NOT EXISTS `gambar_galeri` (
   `uuid` char(50) DEFAULT NULL,
-  `description` varchar(50) DEFAULT NULL,
+  `description` varchar(200) DEFAULT NULL,
   `url` varchar(200) DEFAULT NULL
 ) ENGINE=InnoDB;
 
@@ -60,8 +60,8 @@ INSERT INTO `gambar_galeri` (`uuid`, `description`, `url`) VALUES
 
 CREATE TABLE IF NOT EXISTS `header` (
   `uuid` char(50) DEFAULT NULL,
-  `no_telp` varchar(50) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL
+  `no_telp` varchar(150) DEFAULT NULL,
+  `email` varchar(150) DEFAULT NULL
 ) ENGINE=InnoDB ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `header` (`uuid`, `no_telp`, `email`) VALUES
@@ -69,7 +69,7 @@ INSERT INTO `header` (`uuid`, `no_telp`, `email`) VALUES
 
 CREATE TABLE IF NOT EXISTS `kategori_berita` (
   `uuid` char(50) DEFAULT NULL,
-  `name` char(50) DEFAULT NULL
+  `name` char(100) DEFAULT NULL
 ) ENGINE=InnoDB;
 
 INSERT INTO `kategori_berita` (`uuid`, `name`) VALUES
@@ -80,10 +80,10 @@ INSERT INTO `kategori_berita` (`uuid`, `name`) VALUES
 
 CREATE TABLE IF NOT EXISTS `lokasi_desa` (
   `uuid` char(50) DEFAULT NULL,
-  `desa` char(50) DEFAULT NULL,
-  `kecamatan` char(50) DEFAULT NULL,
-  `kabupaten` char(50) DEFAULT NULL,
-  `kelurahan` char(50) DEFAULT NULL,
+  `desa` char(200) DEFAULT NULL,
+  `kecamatan` char(200) DEFAULT NULL,
+  `kabupaten` char(200) DEFAULT NULL,
+  `kelurahan` char(200) DEFAULT NULL,
   `maps` longtext,
   `rt` char(50) DEFAULT NULL,
   `rw` char(50) DEFAULT NULL
@@ -121,9 +121,9 @@ INSERT INTO `profil_desa` (`uuid`, `visi`, `tentang`, `sejarah`, `created_at`, `
 
 CREATE TABLE IF NOT EXISTS `user` (
   `uuid` char(50) DEFAULT NULL,
-  `email` varchar(50) DEFAULT NULL,
-  `name` char(50) DEFAULT NULL,
-  `password` char(50) DEFAULT NULL
+  `email` varchar(200) DEFAULT NULL,
+  `name` char(100) DEFAULT NULL,
+  `password` char(200) DEFAULT NULL
 ) ENGINE=InnoDB ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `user` (`uuid`, `email`, `name`, `password`) VALUES

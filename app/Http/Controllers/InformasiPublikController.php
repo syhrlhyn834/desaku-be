@@ -145,6 +145,7 @@ class InformasiPublikController extends Controller
     {
         $data = DB::table('kategori_berita')->where("uuid", $id)->update([
             "name" => $req->input("name"),
+            "slug" => $req->input("slug")
         ]);
 
         return response()->json($data);
@@ -154,7 +155,8 @@ class InformasiPublikController extends Controller
     {
         DB::table('kategori_berita')->insert([
             "uuid" => uuid_create(),
-            "name" => $req->input("name")
+            "name" => $req->input("name"),
+            "slug" => $req->input("slug")
         ]);
 
         return response()->json(['success' => true]);

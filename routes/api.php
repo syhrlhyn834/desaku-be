@@ -65,5 +65,9 @@ Route::middleware(['jwt'])->group(function () {
 
     // admin profile
     Route::get('/admin', [AuthController::class, 'findAdmin']);
-
+    Route::get('/admin/{id}', [AuthController::class, 'findAdminById']);
+    Route::post('/admin', [AuthController::class, 'addAdmin']);
+    Route::patch('/admin/{id}', [AuthController::class, 'updateAdmin']);
+    Route::patch('/admin-profile', [AuthController::class, 'updateAdminProfile']);
+    Route::get('/admin/list/all', [AuthController::class, 'getAdmin']);
 });

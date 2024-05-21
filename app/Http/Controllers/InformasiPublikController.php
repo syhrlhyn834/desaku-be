@@ -47,9 +47,13 @@ class InformasiPublikController extends Controller
         return response()->json($data);
     }
 
-    public function getAnnouncement()
+    public function getAnnouncement(Request $req)
     {
-        $data = DB::table('pengumuman')->get();
+        if ($req->query('limit')) {
+            $data = DB::table('pengumuman')->limit($req->query('limit'))->get();
+        } else {
+            $data = DB::table('pengumuman')->get();
+        }
 
         return response()->json($data);
     }
@@ -165,6 +169,65 @@ class InformasiPublikController extends Controller
     public function removeNewsCategory(Request $req, $id)
     {
         DB::table('kategori_berita')->where("uuid", $id)->delete();
+
+        return response()->json(['success' => true]);
+    }
+
+    public function getActivities(Request $req)
+    {
+        if ($req->query('limit')) {
+            $data = DB::table('kegiatan')->limit($req->query('limit'))->get();
+        } else {
+            $data = DB::table('kegiatan')->get();
+        }
+
+        return response()->json($data);
+    }
+
+    public function findActivities($id)
+    {
+        $data = DB::table('kegiatan')->where("uuid", $id)->first();
+
+        return response()->json($data);
+    }
+
+    public function findActivitiesBySlug($slug)
+    {
+        $data = DB::table('kegiatan')->where("slug", $slug)->first();
+
+        return response()->json($data);
+    }
+
+    public function addActivities(Request $req)
+    {
+        DB::table('kegiatan')->insert([
+            "uuid" => uuid_create(),
+            "title" => $req->input("title"),
+            "slug" => $req->input("slug"),
+            "description" => $req->input("description"),
+            "content" => $req->input("content"),
+            "created_at" => Carbon::now(),
+            "updated_at" => Carbon::now()
+        ]);
+
+        return response()->json(['success' => true]);
+    }
+
+    public function updateActivities(Request $req, $id)
+    {
+        $data = DB::table('kegiatan')->where("uuid", $id)->update([
+            "title" => $req->input("title"),
+            "description" => $req->input("description"),
+            "content" => $req->input("content"),
+            "updated_at" => Carbon::now()
+        ]);
+
+        return response()->json($data);
+    }
+
+    public function removeActivities(Request $req, $id)
+    {
+        DB::table('kegiatan')->where("uuid", $id)->delete();
 
         return response()->json(['success' => true]);
     }

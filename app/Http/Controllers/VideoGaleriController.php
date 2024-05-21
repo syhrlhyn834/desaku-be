@@ -7,9 +7,13 @@ use Illuminate\Support\Facades\DB;
 
 class VideoGaleriController extends Controller
 {
-    public function getVideoGallery()
+    public function getVideoGallery(Request $req)
     {
-        $data =  DB::table('video_galeri')->get();
+        if ($req->query('limit')) {
+            $data = DB::table('video_galeri')->limit($req->query('limit'))->get();
+        } else {
+            $data = DB::table('video_galeri')->get();
+        }
 
         return response()->json($data);
     }

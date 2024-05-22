@@ -19,12 +19,20 @@ class PerangkatDesaController extends Controller
         return response()->json($data);
     }
 
+    public function findPerangkatDesa($id)
+    {
+        $data = DB::table('perangkat_desa')->where("uuid", $id)->first();
+
+        return response()->json($data);
+    }
+
     public function addPerangkatDesa(Request $req)
     {
         DB::table('perangkat_desa')->insert([
             "uuid" => uuid_create(),
             "name" => $req->input("name"),
             "job" => $req->input("job"),
+            "job_id" => $req->input("job_id"),
             "image" => $req->input("image"),
             "created_at" => Carbon::now(),
         ]);
@@ -34,14 +42,16 @@ class PerangkatDesaController extends Controller
 
     public function updatePerangkatDesa(Request $req, $id)
     {
-        DB::table('perangkat_desa')->where("uuid", $id)->insert([
+        DB::table('perangkat_desa')->where("uuid", $id)->update([
             "name" => $req->input("name"),
             "job" => $req->input("job"),
+            "job_id" => $req->input("job_id"),
             "image" => $req->input("image"),
         ]);
 
         return response()->json(['success' => true]);
     }
+
 
     public function removePerangkatDesa($id)
     {

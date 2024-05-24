@@ -49,8 +49,9 @@ class InformasiPublikController extends Controller
 
     public function getAnnouncement(Request $req)
     {
-        var_dump($req);
         echo $req->query("limit");
+        echo "asasa";
+        echo $req->has("limt");
         if ($req->query('limit')) {
             $data = DB::table('pengumuman')->limit($req->query('limit'))->get();
         } else {

@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\GambarBerandaController;
 use App\Http\Controllers\InformasiPublikController;
+use App\Http\Controllers\LembagaController;
 use App\Http\Controllers\LokasiDesaController;
 use App\Http\Controllers\PerangkatDesaController;
 use App\Http\Controllers\JabatanController;
@@ -42,6 +43,8 @@ Route::get('/header', [HeaderController::class, 'getHeader']);
 Route::get('/image', [ImageController::class, 'get']);
 Route::get('/perangkat-desa', [PerangkatDesaController::class, 'getPerangkatDesa']);
 Route::get('/perangkat-desa/{id}', [PerangkatDesaController::class, 'findPerangkatDesa']);
+Route::get('/lembaga', [LembagaController::class, 'getLembaga']);
+Route::get('/lembaga/{id}', [LembagaController::class, 'findLembaga']);
 Route::get('/jabatan', [JabatanController::class, 'getJabatan']);
 Route::get('/jabatan/{id}', [JabatanController::class, 'findJabatan']);
 Route::get('/jabatan/perangkat/{id}', [JabatanController::class, 'findJabatanPerangkat']);
@@ -59,6 +62,7 @@ Route::middleware(['jwt'])->group(function () {
     Route::post('/image-gallery', [GambarGaleriController::class, 'addImageGallery']);
     Route::post('/video-gallery', [VideoGaleriController::class, 'addVideoGallery']);
     Route::post('/perangkat-desa', [PerangkatDesaController::class, 'addPerangkatDesa']);
+    Route::post('/lembaga', [LembagaController::class, 'addLembaga']);
     Route::post('/jabatan', [JabatanController::class, 'addJabatan']);
     Route::post('/image', [ImageController::class, 'upload']);
 
@@ -72,6 +76,7 @@ Route::middleware(['jwt'])->group(function () {
     Route::patch('/jabatan/order', [JabatanController::class, 'updateOrderJabatan']);
     Route::patch('/jabatan/{id}', [JabatanController::class, 'updateJabatan']);
     Route::patch('/header', [HeaderController::class, 'updateHeader']);
+    Route::patch('/lembaga/{id}', [LembagaController::class, 'updateLembaga']);
 
     Route::delete('/news/{id}', [InformasiPublikController::class, 'removeNews']);
     Route::delete('/announcement/{id}', [InformasiPublikController::class, 'removeAnnouncement']);
@@ -83,6 +88,7 @@ Route::middleware(['jwt'])->group(function () {
     Route::delete('/jabatan/{id}', [JabatanController::class, 'removeJabatan']);
     Route::delete('/image-gallery/{id}', [GambarGaleriController::class, 'removeImageGallery']);
     Route::delete('/video-gallery/{id}', [VideoGaleriController::class, 'removeVideoGallery']);
+    Route::delete('/lembaga', [LembagaController::class, 'removeLembaga']);
 
     // admin profile
     Route::get('/admin', [AuthController::class, 'findAdmin']);

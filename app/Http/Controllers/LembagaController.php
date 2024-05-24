@@ -21,7 +21,14 @@ class LembagaController extends Controller
 
     public function findLembaga($id)
     {
-        $data = DB::table('lembaga')->where("slug", $id)->first();
+        $data = DB::table('lembaga')->where("uuid", $id)->first();
+
+        return response()->json($data);
+    }
+
+    public function findLembagaBySlug($slug)
+    {
+        $data = DB::table('lembaga')->where("slug", $slug)->first();
 
         return response()->json($data);
     }

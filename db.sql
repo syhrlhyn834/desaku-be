@@ -75,9 +75,9 @@ CREATE TABLE IF NOT EXISTS `jabatan` (
 ) ENGINE=InnoDB ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `jabatan` (`uuid`, `name`, `order`) VALUES
-	('bfb5092c-d32a-4da8-a754-3de6ea51271f', 'Ketua RW', 1),
-	('3a84ee5a-f017-43ae-adc0-c136b56c313b', 'Ketua RT', 2),
-	('36a93a82-7781-4c41-80b4-0e0c3e1840b0', 'Wakil Ketua RT', 3);
+	('bfb5092c-d32a-4da8-a754-3de6ea51271f', 'Ketua RW', 2),
+	('3a84ee5a-f017-43ae-adc0-c136b56c313b', 'Ketua RT', 3),
+	('36a93a82-7781-4c41-80b4-0e0c3e1840b0', 'Wakil Ketua RT', 1);
 
 CREATE TABLE IF NOT EXISTS `kategori_berita` (
   `uuid` char(50) DEFAULT NULL,
@@ -111,6 +111,24 @@ INSERT INTO `kegiatan` (`uuid`, `title`, `slug`, `description`, `content`, `crea
 	('3a16fcf5-6282-412c-9e6d-012d1d6d70d0', 'Jaka', 'jaka', 'asas', NULL, '2024-05-21 03:12:11', '2024-05-21 03:12:11'),
 	('8699b3f2-f170-4785-be8d-3d3626dd19c2', 'Halo', 'halo', 'Wkwkw', '<p>kwkwk</p>', '2024-05-21 03:41:45', '2024-05-21 03:41:45');
 
+CREATE TABLE IF NOT EXISTS `lembaga` (
+  `uuid` char(50) DEFAULT NULL,
+  `slug` varchar(200) DEFAULT NULL,
+  `name` varchar(200) DEFAULT NULL,
+  `surname` char(50) DEFAULT NULL,
+  `visi` text,
+  `address` text,
+  `tugas` text,
+  `profile` text,
+  `image` text,
+  `created_at` datetime DEFAULT NULL
+) ENGINE=InnoDB ROW_FORMAT=DYNAMIC;
+
+INSERT INTO `lembaga` (`uuid`, `slug`, `name`, `surname`, `visi`, `address`, `tugas`, `profile`, `image`, `created_at`) VALUES
+	('922df598-92b9-48b2-bd70-aefc5f94e1f0', 'joglo-muda', 'Joglo Muda', 'JM', 'WKWKW', 'Jalan manggis sukabumi', 'asas', '<p><strong>Badan Permusyawaratan Desa (BPD)</strong>&nbsp;dalam Permendagri No.110/2016 Tugas Badan Permusyawaratan Desa (BPD) mempunyai fungsi, membahas dan menyepakati Rancangan Peraturan Desa bersama Kepala Desa, menampung dan menyalurkan aspirasi masyarakat Desa, dan melakukan pengawasan kinerja Kepala Desa. Selain melaksanakan fungsi diatas, Badan Permusyawaratan Desa juga mempunyai tugas sebagai berikut. Tugas Badan Permusyawaratan Desa:</p><p><br></p><ol><li>Menggali aspirasi masyarakat</li><li>Menampung aspirasi masyarakat</li><li>Mengelola aspirasi masyarakat</li><li>Menyalurkan aspirasi masyarakat</li><li>Menyelenggarakan musyawarah Tugas Badan Permusyawaratan Desa (BPD)</li><li>Menyelenggarakan musyawarah Desa</li><li>Membentuk panitia pemilihan Kepala Desa</li><li>Menyelenggarakan musyawarah Desa khusus untuk pemilihan Kepala Desa antarwaktu</li><li>Membahas dan menyepakati rancangan Peraturan Desa bersama Kepala Desa</li><li>Melaksanakan pengawasan terhadap kinerja Kepala Desa</li><li>Melakukan evaluasi laporan keterangan penyelenggaraan Pemerintahan Desa</li></ol><p>Menciptakan hubungan kerja yang harmonis dengan Pemerintah Desa dan lembaga Desa lainnya; dan melaksanakan tugas lain yang diatur dalam ketentuan peraturan perundang-undangan.</p><p><br></p>', 'http://api.desaku.muhichsan.com/storage/1715254086.jpeg', '2024-05-24 06:28:20'),
+	('716a7ca7-1b7f-4c5e-a702-314c8f131044', 'halo', 'Halo', 'loh', 'WKWKW', 'Jalan manggis sukabumi', 'asas', NULL, 'http://api.desaku.muhichsan.com/storage/1715254265.jpeg', '2024-05-24 06:36:11'),
+	('7902ac22-792a-4f5a-843c-021ff4e0d8c6', 'karang-muda', 'Karang Muda', 'KM', 'WKWKW', 'Jalan manggis sukabumi', 'asas', '<p><strong>Badan Permusyawaratan Desa (BPD)</strong>&nbsp;dalam Permendagri No.110/2016 Tugas Badan Permusyawaratan Desa (BPD) mempunyai fungsi, membahas dan menyepakati Rancangan Peraturan Desa bersama Kepala Desa, menampung dan menyalurkan aspirasi masyarakat Desa, dan melakukan pengawasan kinerja Kepala Desa. Selain melaksanakan fungsi diatas, Badan Permusyawaratan Desa juga mempunyai tugas sebagai berikut. Tugas Badan Permusyawaratan Desa:</p><p><br></p>', 'http://api.desaku.muhichsan.com/storage/1716288867.jpeg', '2024-05-24 07:36:07');
+
 CREATE TABLE IF NOT EXISTS `lokasi_desa` (
   `uuid` char(50) DEFAULT NULL,
   `desa` char(50) DEFAULT NULL,
@@ -141,7 +159,11 @@ INSERT INTO `pengumuman` (`uuid`, `title`, `slug`, `description`, `content`, `cr
 	('56b226ba-13a1-425d-86c7-5214fe25ace5', 'Halo kOLK', 'halo', 'Kolka?', NULL, '2024-05-21 03:08:03', '2024-05-21 03:11:29'),
 	('47def021-c9c5-44af-8094-0611f23ef681', 'Wow', 'wow', 'Hahaha', NULL, '2024-05-21 03:10:45', '2024-05-21 03:10:45'),
 	('e8d7fcee-1cf8-43b3-a7f1-cf7301f98185', 'Lok', 'lok', 'wkwkwkw', NULL, '2024-05-21 03:12:03', '2024-05-21 03:12:03'),
-	('3a16fcf5-6282-412c-9e6d-012d1d6d70d0', 'Jaka', 'jaka', 'asas', NULL, '2024-05-21 03:12:11', '2024-05-21 03:12:11');
+	('3a16fcf5-6282-412c-9e6d-012d1d6d70d0', 'Jaka', 'jaka', 'asas', NULL, '2024-05-21 03:12:11', '2024-05-21 03:12:11'),
+	('7e5b3247-1c75-49d9-a831-55514dbe32eb', 'Hlao', 'hlao', 'sas', NULL, '2024-05-24 07:13:46', '2024-05-24 07:13:46'),
+	('09006f08-9fc8-43c8-af87-48dbbe9a4555', 'asas', 'asas', 'asas', NULL, '2024-05-24 07:13:55', '2024-05-24 07:13:55'),
+	('71405f0f-3324-4545-b26d-be498461011b', 'asas', 'asas', 'sas', NULL, '2024-05-24 07:14:03', '2024-05-24 07:14:03'),
+	('81f2b1af-009a-4476-b6cb-b15925bf96e6', 'Makan', 'makan', 'adads', NULL, '2024-05-24 07:14:12', '2024-05-24 07:14:12');
 
 CREATE TABLE IF NOT EXISTS `perangkat_desa` (
   `uuid` char(50) DEFAULT NULL,
@@ -156,13 +178,14 @@ CREATE TABLE IF NOT EXISTS `perangkat_desa` (
 INSERT INTO `perangkat_desa` (`uuid`, `name`, `job`, `job_id`, `image`, `created_at`) VALUES
 	('8ba9ce9f-49f2-4846-a81f-9bc3109576f4', 'Erick Tohir', 'Wakil Ketua RT', '36a93a82-7781-4c41-80b4-0e0c3e1840b0', 'http://api.desaku.muhichsan.com/storage/1716288981.jpeg', '2024-05-22 01:52:36'),
 	('6d2b5c86-4495-4c59-a54f-efcb631d5051', 'Jusuf Kalla', 'Ketua RW', 'bfb5092c-d32a-4da8-a754-3de6ea51271f', 'http://api.desaku.muhichsan.com/storage/1716288910.jpeg', '2024-05-22 02:08:58'),
-	('6deea6af-c8c9-4225-ae49-2f21b79e6f84', 'Amin Maaruf', 'Ketua RT', '3a84ee5a-f017-43ae-adc0-c136b56c313b', 'http://api.desaku.muhichsan.com/storage/1716288867.jpeg', '2024-05-22 02:09:19');
+	('6deea6af-c8c9-4225-ae49-2f21b79e6f84', 'Amin Maaruf', 'Ketua RT', '3a84ee5a-f017-43ae-adc0-c136b56c313b', 'http://api.desaku.muhichsan.com/storage/1716288867.jpeg', '2024-05-22 02:09:19'),
+	('782bf349-87e8-43ff-9e3a-c2c48f9e9be1', 'Makan', 'Ketua RW', 'bfb5092c-d32a-4da8-a754-3de6ea51271f', 'http://api.desaku.muhichsan.com/storage/1715347478.jpeg', '2024-05-24 06:26:59');
 
 CREATE TABLE IF NOT EXISTS `profil_desa` (
   `uuid` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `visi` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
-  `tentang` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci,
-  `sejarah` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci NOT NULL,
+  `visi` longtext NOT NULL,
+  `tentang` longtext,
+  `sejarah` longtext NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`uuid`)
@@ -180,7 +203,7 @@ CREATE TABLE IF NOT EXISTS `user` (
 ) ENGINE=InnoDB ROW_FORMAT=DYNAMIC;
 
 INSERT INTO `user` (`uuid`, `email`, `name`, `password`, `is_admin`) VALUES
-	('376738e4-d859-42a5-b50c-728fab99dd49', 'admin@desaku.id', 'Jokowi Dodobjk', '123', 1),
+	('376738e4-d859-42a5-b50c-728fab99dd49', 'admin@desaku.id', 'Jokowi Dodo', '123', 1),
 	('c2a7d546-b5f7-43a0-a71c-363c9019efb3', 'ichsanfadhil67@gmail.com', 'Jokowi Dodo', '123', 0);
 
 CREATE TABLE IF NOT EXISTS `video_galeri` (

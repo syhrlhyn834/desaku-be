@@ -21,6 +21,7 @@ class LokasiDesaController extends Controller
             "kecamatan" => $req->input("kecamatan"),
             "kabupaten" => $req->input("kabupaten"),
             "kelurahan" => $req->input("kelurahan"),
+            "provinsi" => $req->input("provinsi"),
             "rt" => $req->input("rt"),
             "rw" => $req->input("rw"),
             "maps" => $req->input("maps"),

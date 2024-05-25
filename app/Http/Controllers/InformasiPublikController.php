@@ -11,9 +11,16 @@ class InformasiPublikController extends Controller
     public function getNews(Request $req)
     {
         if ($req->query('limit')) {
-            $data = DB::table('berita')->limit($req->query('limit'))->get();
+            $data = DB::table('berita')
+            ->limit($req->query('limit'))
+            ->join('kategori_berita', 'berita.category_id', '=', 'kategori_berita.uuid')
+            ->select('berita.*', 'kategori_berita.name', 'kategori_berita.slug')
+            ->get();
         } else {
-            $data = DB::table('berita')->get();
+            $data = DB::table('berita')
+            ->join('kategori_berita', 'berita.category_id', '=', 'kategori_berita.uuid')
+            ->select('berita.*', 'kategori_berita.name', 'kategori_berita.slug')
+            ->get();
         }
 
         return response()->json($data);
@@ -38,7 +45,7 @@ class InformasiPublikController extends Controller
         $data = DB::table('berita')->where("uuid", $id)->update([
             "title" => $req->input("title"),
             "description" => $req->input("description"),
-            "category" => $req->input("category"),
+            "category_id" => $req->input("category_id"),
             "content" => $req->input("content"),
             "thumbnail" => $req->input("thumbnail"),
             "updated_at" => Carbon::now()
@@ -113,7 +120,7 @@ class InformasiPublikController extends Controller
             "title" => $req->input("title"),
             "slug" => $req->input("slug"),
             "description" => $req->input("description"),
-            "category" => $req->input("category"),
+            "category_id" => $req->input("category_id"),
             "content" => $req->input("content"),
             "thumbnail" => $req->input("thumbnail"),
             "created_at" => Carbon::now(),

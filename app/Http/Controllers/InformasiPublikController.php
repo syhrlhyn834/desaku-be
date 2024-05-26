@@ -14,13 +14,30 @@ class InformasiPublikController extends Controller
             $data = DB::table('berita')
             ->limit($req->query('limit'))
             ->join('kategori_berita', 'berita.category_id', '=', 'kategori_berita.uuid')
-            ->select('berita.*', 'kategori_berita.name', 'kategori_berita.slug')
+            ->select('berita.*', 'kategori_berita.name', 'kategori_berita.slug as category_slug')
             ->get();
         } else {
             $data = DB::table('berita')
             ->join('kategori_berita', 'berita.category_id', '=', 'kategori_berita.uuid')
-            ->select('berita.*', 'kategori_berita.name', 'kategori_berita.slug')
+            ->select('berita.*', 'kategori_berita.name', 'kategori_berita.slug as category_slug')
             ->get();
+        }
+
+        if ($req->query('category')) {
+            $category = DB::table('kategori_berita')
+            ->where("slug", $req->query('category'))
+            ->first("name");
+
+            $data = DB::table('berita')
+            ->join('kategori_berita', 'berita.category_id', '=', 'kategori_berita.uuid')
+            ->where('kategori_berita.slug', $req->query('category'))
+            ->select('berita.*', 'kategori_berita.name', 'kategori_berita.slug as category_slug')
+            ->get();
+
+            $data = [
+                "category_name" => $category->name,
+                "data" => $data
+            ];
         }
 
         return response()->json($data);
@@ -44,6 +61,7 @@ class InformasiPublikController extends Controller
     {
         $data = DB::table('berita')->where("uuid", $id)->update([
             "title" => $req->input("title"),
+            "slug" => $req->input("slug"),
             "description" => $req->input("description"),
             "category_id" => $req->input("category_id"),
             "content" => $req->input("content"),

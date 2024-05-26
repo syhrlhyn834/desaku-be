@@ -47,6 +47,7 @@ Route::get('/header', [HeaderController::class, 'getHeader']);
 Route::get('/image', [ImageController::class, 'get']);
 Route::get('/perangkat-desa', [PerangkatDesaController::class, 'getPerangkatDesa']);
 Route::get('/perangkat-desa/{id}', [PerangkatDesaController::class, 'findPerangkatDesa']);
+Route::get('/perangkat-desa/slug/{slug}', [PerangkatDesaController::class, 'findPerangkatDesaBySlug']);
 Route::get('/lembaga', [LembagaController::class, 'getLembaga']);
 Route::get('/lembaga/{id}', [LembagaController::class, 'findLembaga']);
 Route::get('/lembaga/slug/{slug}', [LembagaController::class, 'findLembagaBySlug']);

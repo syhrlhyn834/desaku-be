@@ -26,11 +26,20 @@ class PerangkatDesaController extends Controller
         return response()->json($data);
     }
 
+    public function findPerangkatDesaBySlug($slug)
+    {
+        $data = DB::table('perangkat_desa')->where("slug", $slug)->first();
+
+        return response()->json($data);
+    }
+
     public function addPerangkatDesa(Request $req)
     {
         DB::table('perangkat_desa')->insert([
             "uuid" => uuid_create(),
             "name" => $req->input("name"),
+            "slug" => $req->input("slug"),
+            "nip" => $req->input("nip"),
             "job" => $req->input("job"),
             "job_id" => $req->input("job_id"),
             "image" => $req->input("image"),
@@ -44,6 +53,8 @@ class PerangkatDesaController extends Controller
     {
         DB::table('perangkat_desa')->where("uuid", $id)->update([
             "name" => $req->input("name"),
+            "slug" => $req->input("slug"),
+            "nip" => $req->input("nip"),
             "job" => $req->input("job"),
             "job_id" => $req->input("job_id"),
             "image" => $req->input("image"),

@@ -19,11 +19,6 @@ class FooterController extends Controller
         DB::table('footer')->where("uuid", '1')->update([
             "profile" => $req->input("profile"),
             "address" => $req->input("address"),
-            "twitter" => $req->input("twitter"),
-            "youtube" => $req->input("youtube"),
-            "instagram" => $req->input("instagram"),
-            "whatsapp" => "https://wa.me/" . $req->input("whatsapp"),
-            "facebook" => $req->input("facebook"),
         ]);
 
         return response()->json(['success' => true]);

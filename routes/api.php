@@ -9,6 +9,7 @@ use App\Http\Controllers\JabatanController;
 use App\Http\Controllers\ProfilDesaController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\GambarGaleriController;
+use App\Http\Controllers\SosialMediaController;
 use App\Http\Controllers\VideoGaleriController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FooterController;
@@ -39,6 +40,7 @@ Route::get('/image-gallery/{id}', [GambarGaleriController::class, 'findImageGall
 Route::get('/location', [LokasiDesaController::class, 'getLocation']);
 Route::get('/video-gallery', [VideoGaleriController::class, 'getVideoGallery']);
 Route::get('/footer', [FooterController::class, 'getFooter']);
+Route::get('/social-media', [SosialMediaController::class, 'getSocialMedia']);
 Route::get('/header', [HeaderController::class, 'getHeader']);
 Route::get('/image', [ImageController::class, 'get']);
 Route::get('/perangkat-desa', [PerangkatDesaController::class, 'getPerangkatDesa']);
@@ -66,6 +68,7 @@ Route::middleware(['jwt'])->group(function () {
     Route::post('/lembaga', [LembagaController::class, 'addLembaga']);
     Route::post('/jabatan', [JabatanController::class, 'addJabatan']);
     Route::post('/image', [ImageController::class, 'upload']);
+    Route::post('/social-media', [SosialMediaController::class, 'updateSocialMedia']);
 
     Route::patch('/announcement/{id}', [InformasiPublikController::class, 'updateAnnouncement']);
     Route::patch('/activities/{id}', [InformasiPublikController::class, 'updateActivities']);

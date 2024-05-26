@@ -14,6 +14,7 @@ use App\Http\Controllers\VideoGaleriController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FooterController;
 use App\Http\Controllers\HeaderController;
+use App\Http\Controllers\AlamatController;
 use Illuminate\Support\Facades\Route;
 
 // Authentication
@@ -41,6 +42,7 @@ Route::get('/location', [LokasiDesaController::class, 'getLocation']);
 Route::get('/video-gallery', [VideoGaleriController::class, 'getVideoGallery']);
 Route::get('/footer', [FooterController::class, 'getFooter']);
 Route::get('/social-media', [SosialMediaController::class, 'getSocialMedia']);
+Route::get('/address', [AlamatController::class, 'getAlamat']);
 Route::get('/header', [HeaderController::class, 'getHeader']);
 Route::get('/image', [ImageController::class, 'get']);
 Route::get('/perangkat-desa', [PerangkatDesaController::class, 'getPerangkatDesa']);
@@ -69,6 +71,7 @@ Route::middleware(['jwt'])->group(function () {
     Route::post('/jabatan', [JabatanController::class, 'addJabatan']);
     Route::post('/image', [ImageController::class, 'upload']);
     Route::post('/social-media', [SosialMediaController::class, 'updateSocialMedia']);
+    Route::post('/address', [AlamatController::class, 'updateAlamat']);
 
     Route::patch('/announcement/{id}', [InformasiPublikController::class, 'updateAnnouncement']);
     Route::patch('/activities/{id}', [InformasiPublikController::class, 'updateActivities']);

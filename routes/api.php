@@ -36,6 +36,8 @@ Route::get('/activities/{id}', [InformasiPublikController::class, 'findActivitie
 Route::get('/activities/slug/{id}', [InformasiPublikController::class, 'findActivitiesBySlug']);
 Route::get('/news-category', [InformasiPublikController::class, 'getNewsCategory']);
 Route::get('/news-category/{id}', [InformasiPublikController::class, 'findNewsCategory']);
+Route::get('/potensi-category', [PotensiDesaController::class, 'getPotensiCategory']);
+Route::get('/potensi-category/{id}', [PotensiDesaController::class, 'findPotensiCategory']);
 Route::get('/image-homepage', [GambarBerandaController::class, 'getImageHomepage']);
 Route::get('/image-gallery', [GambarGaleriController::class, 'getImageGallery']);
 Route::get('/image-gallery/{id}', [GambarGaleriController::class, 'findImageGallery']);
@@ -73,6 +75,7 @@ Route::middleware(['jwt'])->group(function () {
     Route::post('/video-gallery', [VideoGaleriController::class, 'addVideoGallery']);
     Route::post('/perangkat-desa', [PerangkatDesaController::class, 'addPerangkatDesa']);
     Route::post('/potensi-desa', [PotensiDesaController::class, 'addPotensiDesa']);
+    Route::post('/potensi-category', [PotensiDesaController::class, 'addPotensiCategory']);
     Route::post('/lembaga', [LembagaController::class, 'addLembaga']);
     Route::post('/jabatan', [JabatanController::class, 'addJabatan']);
     Route::post('/image', [ImageController::class, 'upload']);
@@ -87,6 +90,7 @@ Route::middleware(['jwt'])->group(function () {
     Route::patch('/footer', [FooterController::class, 'updateFooter']);
     Route::patch('/perangkat-desa/{id}', [PerangkatDesaController::class, 'updatePerangkatDesa']);
     Route::patch('/potensi-desa/{id}', [PotensiDesaController::class, 'updatePotensiDesa']);
+    Route::patch('/potensi-category/{id}', [PotensiDesaController::class, 'updatePotensiCategory']);
     Route::patch('/jabatan/order', [JabatanController::class, 'updateOrderJabatan']);
     Route::patch('/jabatan/{id}', [JabatanController::class, 'updateJabatan']);
     Route::patch('/header', [HeaderController::class, 'updateHeader']);
@@ -100,6 +104,7 @@ Route::middleware(['jwt'])->group(function () {
     Route::delete('/image/{file}', [ImageController::class, 'remove']);
     Route::delete('/perangkat-desa/{id}', [PerangkatDesaController::class, 'removePerangkatDesa']);
     Route::delete('/potensi-desa/{id}', [PotensiDesaController::class, 'removePotensiDesa']);
+    Route::delete('/potensi-category/{id}', [PotensiDesaController::class, 'removePotensiCategory']);
     Route::delete('/jabatan/{id}', [JabatanController::class, 'removeJabatan']);
     Route::delete('/image-gallery/{id}', [GambarGaleriController::class, 'removeImageGallery']);
     Route::delete('/video-gallery/{id}', [VideoGaleriController::class, 'removeVideoGallery']);

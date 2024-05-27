@@ -16,7 +16,7 @@ class PotensiDesaController extends Controller
             $query = $query->where("kategori_potensi.slug", $req->query('category'));
         }
 
-        $query = $query->select('potensi_desa.*', 'kategori_potensi.name as category_name', 'kategori_potensi.slug as category_slug'); 
+        $query = $query->select('potensi_desa.*', 'kategori_potensi.name as category_name', 'kategori_potensi.slug as category_slug');
 
         if ($req->query('limit')) {
             $data = $query->limit($req->query('limit'))->get();
@@ -43,7 +43,10 @@ class PotensiDesaController extends Controller
 
     public function findPotensiDesaByCategory($slug)
     {
-        $data = DB::table('potensi_desa')->where("slug", $slug)->first();
+        $data = DB::table('potensi_desa')
+            ->join('kategori_potensi', 'potensi_desa.category', '=', 'kategori_potensi.uuid')
+            ->where("potensi_desa.slug", $slug)
+            ->first();
 
         return response()->json($data);
     }

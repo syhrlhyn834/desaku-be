@@ -20,7 +20,7 @@ CREATE TABLE IF NOT EXISTS `berita` (
   `content` text,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `berita` (`uuid`, `title`, `slug`, `description`, `category_id`, `thumbnail`, `content`, `created_at`, `updated_at`) VALUES
 	('8b119814-1e1c-4cbd-9858-f6c53153ddde', 'Apartemen Belgorod Rusia Runtuh Dirudal Ukraina, 7 Orang Tewas', 'apartemen-belgorod-rusia-runtuh-dirudal-ukraina-13-orang-tewas', 'Kementerian Situasi Darurat Rusia, seperti dikutip AP, Senin (13/5/2024), mengatakan sejauh ini 13 jenazah telah ditemukan dari reruntuhan bangunan.', '859f39a9-b0c4-4811-a741-2e2eb8473205', 'http://api.desaku.muhichsan.com/storage/1715426878.jpeg', '<p><span style="color: rgb(0, 0, 0);">Kementerian Situasi Darurat Rusia, seperti dikutip AP, Senin (13/5/2024), mengatakan sejauh ini 13 jenazah telah ditemukan dari reruntuhan bangunan. Komite Investigasi Rusia, lembaga penegak hukum utama negara itu, mengatakan dalam sebuah pernyataan bahwa gedung 10 lantai itu terkena serangan Ukraina. Kementerian Pertahanan Rusia kemudian menulis di media sosial bahwa bangunan tersebut telah hancur oleh pecahan rudal Tochka-U TRC yang jatuh. </span></p><p><br></p><p><span style="color: rgb(0, 0, 0);">Menurut kementerian tersebut, sistem pertahanan udara juga telah menembak jatuh beberapa roket lagi di wilayah Belgorod, serta dua drone dalam insiden terpisah pada Minggu malam. Peringatan serangan udara terus berlanjut di seluruh Belgorod saat tim penyelamat bekerja. Kota itu juga diserang pada Sabtu malam, menewaskan satu orang dan melukai 29 lainnya, kata Gubernur Belgorod Vyacheslav Gladkov.</span></p><p><br></p><p><span style="color: rgb(0, 0, 0);">Artikel ini telah diterbitkan di halaman SINDOnews.com pada Senin, 13 Mei 2024 - 08:35 WIB oleh Muhaimin dengan judul "Apartemen Belgorod Rusia Runtuh Dirudal Ukraina, 13 Orang Tewas". Untuk selengkapnya kunjungi:</span></p><p><span style="color: rgb(0, 0, 0);">https://international.sindonews.com/read/1375691/41/apartemen-belgorod-rusia-runtuh-dirudal-ukraina-13-orang-tewas-1715562329</span></p><p><br></p><p><span style="color: rgb(0, 0, 0);">Untuk membaca berita lebih mudah, nyaman, dan tanpa banyak iklan, silahkan download aplikasi SINDOnews.</span></p><p><span style="color: rgb(0, 0, 0);">- Android:&nbsp;</span><a href="https://sin.do/u/android" rel="noopener noreferrer" target="_blank" style="background-color: rgb(255, 255, 255);">https://sin.do/u/android</a></p><p><span style="color: rgb(0, 0, 0);">- iOS:&nbsp;</span><a href="https://sin.do/u/ios" rel="noopener noreferrer" target="_blank" style="background-color: rgb(255, 255, 255);">https://sin.do/u/ios</a></p>', '2024-05-15 13:46:39', '2024-05-25 14:01:54'),
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `footer` (
   `profile` text,
   `address` text,
   `copyright` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `footer` (`uuid`, `profile`, `address`, `copyright`) VALUES
 	('1', 'Website desa dibangun sebagai bagian dari SISTEM INFORMASI DESA yang berfungsi sebagai portal informasi, transparansi, dan sosialisasi pemerintah terkait tata kelola pembangunan kawasan perdesaan (pembangunan, pembinaan dan pemberdayaan) yang dirasakan langsung oleh masyarakat sebagai penerima manfaat.', 'Jl. Raya Tagog No. 128 Padalarang. Kode Pos 40553', '2024 © Desa Kertamulya Kabupaten Manisrenggo.');
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `gambar_beranda` (
   `url` varchar(200) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `gambar_beranda` (`uuid`, `description`, `url`, `created_at`, `updated_at`) VALUES
 	('3160b133-c0cb-4446-8579-f64c34a62f9d', 'Penyuluhan Imunisasi', 'http://api.desaku.muhichsan.com/storage/1715851406.jpg', '2024-05-16 09:55:44', '2024-05-16 09:55:44'),
@@ -58,7 +58,7 @@ CREATE TABLE IF NOT EXISTS `gambar_galeri` (
   `uuid` char(50) DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL,
   `url` char(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `gambar_galeri` (`uuid`, `description`, `url`) VALUES
 	('a6438de3-3d85-4415-bc35-039a6045d119', 'mAKAN', 'http://api.desaku.muhichsan.com/storage/1715489819.jpeg'),
@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `kategori_berita` (
   `uuid` char(50) DEFAULT NULL,
   `name` char(200) DEFAULT NULL,
   `slug` char(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `kategori_berita` (`uuid`, `name`, `slug`) VALUES
 	('859f39a9-b0c4-4811-a741-2e2eb8473205', 'Informasi Umum', 'informasi-umum'),
@@ -162,7 +162,7 @@ CREATE TABLE IF NOT EXISTS `lokasi_desa` (
   `rt` char(50) DEFAULT NULL,
   `rw` char(50) DEFAULT NULL,
   `provinsi` char(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `lokasi_desa` (`uuid`, `desa`, `kecamatan`, `kabupaten`, `kelurahan`, `maps`, `rt`, `rw`, `provinsi`) VALUES
 	('1', 'Demangan', 'Selomartani', 'Sleman Barat', NULL, '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d13775.689247611277!2d110.4623105457275!3d-7.719445311589754!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5b002c9e90df%3A0x23b5967fa1ba0b53!2sKledoan%20joglo&#39;s%20Villa!5e0!3m2!1sen!2sid!4v1715591524593!5m2!1sen!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>', '06', '06', 'Jawa Barat');
@@ -225,7 +225,7 @@ INSERT INTO `potensi_desa` (`uuid`, `title`, `slug`, `description`, `category`, 
 	('6c77927b-0e53-4553-8f7b-f5f070c636a1', 'Mobil Seruduk Motor yang Terparkir, Begini Penjelasan Polisi', 'mobil-seruduk-motor-yang-terparkir-begini-penjelasan-polisi', 'BANDUNG – Beredar sebuah video rekaman CCTV yang memperlihatkan sebuah mobil yang menabrak sepeda motor yang tengah terparkir.', 'e861055a-89b7-484f-9a0d-c30ea358deef', 'http://api.desaku.muhichsan.com/storage/1715254086.jpeg', '<p>Menurutnya, pengemudi merupakan orang tua dan tengah bersama keluarganya.</p><p><br></p><p>Awalnya, pengemudi tengah mencari tempat parkir sampai beberapa kali memutar balik, tapi&nbsp;belum menemukan tempat parkir yang kosong.</p><p><br></p><p>Namun pada putaran terakhir, pengemudi hendak mengerem kendaraan karena di depannya terdapat truk namun remnya blong.</p><p><br></p><p>“Dia keliling sampai dua kali terus terhalangi oleh mobil, dia mengerem tapi rem blong untuk menghindari tabrakan dia membanting ke kanan akhirnya menabrak motor. Ada enam motor yang tertabrak, tidak ada korban,” bebernya saat dihubungi, Sabtu (2/4/2022).“Mobilnya dikerubuti massa tapi mereka pada sadar dan paham diselesaikan secara kekeluargaan di polsek dan laka lantas ditangani oleh unit laka lantas Polrestabes Bandung,” kata Kapolsek Lengkong.</p><p>Kini pengemudi dan pemilik motor akhirnya berdamai dan mau mengganti kerusakan.</p>', '2024-05-26 14:35:07');
 
 CREATE TABLE IF NOT EXISTS `profil_desa` (
-  `uuid` char(36) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `uuid` char(36) NOT NULL,
   `visi` longtext NOT NULL,
   `tentang` longtext,
   `sejarah` longtext NOT NULL,
@@ -264,7 +264,7 @@ CREATE TABLE IF NOT EXISTS `video_galeri` (
   `uuid` char(50) DEFAULT NULL,
   `description` text,
   `url` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `video_galeri` (`uuid`, `description`, `url`) VALUES
 	('6625ce64-6b12-46c6-b485-463586a2ac85', 'asas', 'https://www.youtube.com/embed/xrHFh1cImIY?si=BBqgVx3bpZt0M6TF'),

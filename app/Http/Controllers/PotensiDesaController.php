@@ -29,7 +29,7 @@ class PotensiDesaController extends Controller
             ->first("name");
 
         return response()->json([
-            "category_name" => $category->name,
+            "category_name" => $category->name ?? null,
             "data" => $data
         ]);
     }

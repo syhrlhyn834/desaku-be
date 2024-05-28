@@ -32,6 +32,16 @@ class GambarGaleriController extends Controller
         return response()->json(['success' => true]);
     }
 
+    public function updateImageGallery(Request $req, $id)
+    {
+        DB::table('gambar_galeri')->where("uuid", $id)->update([
+            "description" => $req->input("description"),
+            "url" => $req->input("image"),
+        ]);
+
+        return response()->json(['success' => true]);
+    }
+
     public function removeImageGallery($id)
     {
         DB::table('gambar_galeri')->where("uuid", $id)->delete();

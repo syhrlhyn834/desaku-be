@@ -95,6 +95,7 @@ Route::middleware(['jwt'])->group(function () {
     Route::patch('/jabatan/{id}', [JabatanController::class, 'updateJabatan']);
     Route::patch('/header', [HeaderController::class, 'updateHeader']);
     Route::patch('/lembaga/{id}', [LembagaController::class, 'updateLembaga']);
+    Route::patch('/image-gallery/{id}', [GambarGaleriController::class, 'updateImageGallery']);
 
     Route::delete('/news/{id}', [InformasiPublikController::class, 'removeNews']);
     Route::delete('/announcement/{id}', [InformasiPublikController::class, 'removeAnnouncement']);

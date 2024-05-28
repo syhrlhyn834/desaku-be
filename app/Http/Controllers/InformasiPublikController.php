@@ -10,37 +10,49 @@ class InformasiPublikController extends Controller
 {
     public function getNews(Request $req)
     {
-        if ($req->query('limit')) {
+        $total = DB::table('berita')->count();
+        $category = null;
+
+        if ($req->query('limit') && $req->query('page')) {
+            // pagination data
+            $offset = $req->query('page') * 5 - 5;
+
             $data = DB::table('berita')
-            ->limit($req->query('limit'))
-            ->join('kategori_berita', 'berita.category_id', '=', 'kategori_berita.uuid')
-            ->select('berita.*', 'kategori_berita.name', 'kategori_berita.slug as category_slug')
-            ->get();
+                ->limit($req->query('limit'))
+                ->offset($offset);
+        } else if ($req->query('limit') && !$req->query('offset')) {
+            // latest news
+            $data = DB::table('berita')
+                ->limit($req->query('limit'));
         } else {
-            $data = DB::table('berita')
-            ->join('kategori_berita', 'berita.category_id', '=', 'kategori_berita.uuid')
-            ->select('berita.*', 'kategori_berita.name', 'kategori_berita.slug as category_slug')
-            ->get();
+            $data = DB::table('berita');
         }
+
+        $data = $data->join('kategori_berita', 'berita.category_id', '=', 'kategori_berita.uuid');
 
         if ($req->query('category')) {
             $category = DB::table('kategori_berita')
-            ->where("slug", $req->query('category'))
-            ->first("name");
+                ->where("slug", $req->query('category'))
+                ->first("name");
+            $category = $category->name;
 
-            $data = DB::table('berita')
-            ->join('kategori_berita', 'berita.category_id', '=', 'kategori_berita.uuid')
-            ->where('kategori_berita.slug', $req->query('category'))
-            ->select('berita.*', 'kategori_berita.name', 'kategori_berita.slug as category_slug')
-            ->get();
+            $data = $data->where('kategori_berita.slug', $req->query('category'));
 
-            $data = [
-                "category_name" => $category->name,
-                "data" => $data
-            ];
+            // get total item base on category
+            $total = DB::table('berita')
+                ->join('kategori_berita', 'berita.category_id', '=', 'kategori_berita.uuid')
+                ->where("kategori_berita.slug", $req->query('category'))
+                ->count();
         }
 
-        return response()->json($data);
+        $data = $data->select('berita.*', 'kategori_berita.name', 'kategori_berita.slug as category_slug')
+            ->get();
+
+        return response()->json([
+            "data" => $data,
+            "total" => $total,
+            "category_name" => $category,
+        ]);
     }
 
     public function findNews($id)
@@ -118,6 +130,7 @@ class InformasiPublikController extends Controller
             "title" => $req->input("title"),
             "description" => $req->input("description"),
             "content" => $req->input("content"),
+            "slug" => $req->input("slug"),
             "updated_at" => Carbon::now()
         ]);
 
@@ -156,9 +169,17 @@ class InformasiPublikController extends Controller
     }
 
 
-    public function getNewsCategory()
+    public function getNewsCategory(Request $req)
     {
-        $data = DB::table('kategori_berita')->get();
+        if ($req->query('allow_empty')) {
+            $data = DB::table('berita')
+                ->join('kategori_berita', 'berita.category_id', '=', 'kategori_berita.uuid')
+                ->select('kategori_berita.*')
+                ->distinct()
+                ->get();
+        } else {
+            $data = DB::table('kategori_berita')->get();
+        }
 
         return response()->json($data);
     }

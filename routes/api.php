@@ -11,6 +11,7 @@ use App\Http\Controllers\ProfilDesaController;
 use App\Http\Controllers\ImageController;
 use App\Http\Controllers\GambarGaleriController;
 use App\Http\Controllers\SosialMediaController;
+use App\Http\Controllers\StrukturOrganisasiController;
 use App\Http\Controllers\VideoGaleriController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\FooterController;
@@ -59,6 +60,7 @@ Route::get('/lembaga/{id}', [LembagaController::class, 'findLembaga']);
 Route::get('/lembaga/slug/{slug}', [LembagaController::class, 'findLembagaBySlug']);
 Route::get('/jabatan', [JabatanController::class, 'getJabatan']);
 Route::get('/jabatan/{id}', [JabatanController::class, 'findJabatan']);
+Route::get('/struktur-organisasi', [StrukturOrganisasiController::class, 'getStrukturOrganisasi']);
 Route::get('/jabatan/perangkat/{id}', [JabatanController::class, 'findJabatanPerangkat']);
 
 // Jwt Authnetication
@@ -96,6 +98,7 @@ Route::middleware(['jwt'])->group(function () {
     Route::patch('/header', [HeaderController::class, 'updateHeader']);
     Route::patch('/lembaga/{id}', [LembagaController::class, 'updateLembaga']);
     Route::patch('/image-gallery/{id}', [GambarGaleriController::class, 'updateImageGallery']);
+    Route::patch('/struktur-organisasi', [StrukturOrganisasiController::class, 'updateStrukturOrganisasi']);
 
     Route::delete('/news/{id}', [InformasiPublikController::class, 'removeNews']);
     Route::delete('/announcement/{id}', [InformasiPublikController::class, 'removeAnnouncement']);

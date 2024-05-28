@@ -168,7 +168,6 @@ class InformasiPublikController extends Controller
         return response()->json(['success' => true]);
     }
 
-
     public function getNewsCategory(Request $req)
     {
         if ($req->query('allow_empty')) {

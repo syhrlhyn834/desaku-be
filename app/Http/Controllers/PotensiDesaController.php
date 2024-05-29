@@ -89,9 +89,18 @@ class PotensiDesaController extends Controller
         return response()->json(['success' => true]);
     }
 
-    public function getPotensiCategory()
+    public function getPotensiCategory(Request $req)
     {
-        $data = DB::table('kategori_potensi')->get();
+        if ($req->query('allow_empty')) {
+            $data = DB::table('potensi_desa')
+                ->join('kategori_potensi', 'potensi_desa.category', '=', 'kategori_potensi.uuid')
+                ->select('kategori_potensi.*')
+                ->distinct()
+                ->get();
+        } else {
+            $data = DB::table('kategori_potensi')->get();
+        }
+
 
         return response()->json($data);
     }

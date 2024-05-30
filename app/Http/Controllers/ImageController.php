@@ -34,7 +34,7 @@ class ImageController extends Controller
             return env('APP_URL') . '/' . str_replace("public", "storage", $val) ;
         }, $data);
 
-        return response()->json($data);
+        return response()->json(array_reverse($data));
     }
 
     public function remove($file)

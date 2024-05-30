@@ -9,7 +9,7 @@ class SosialMediaController extends Controller
 {
     public function getSocialMedia()
     {
-        $data =  DB::table('sosial_media')->orderBy('created_at', 'desc')->get();
+        $data =  DB::table('sosial_media')->get();
 
         return response()->json($data);
     }

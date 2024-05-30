@@ -12,18 +12,20 @@ class AuthController extends Controller
     public function login(Request $req)
     {
         $key = 'desaku89ajs';
-        $payload = [
-            "email" => $req->input("email")
-        ];
 
-        $isUserExist = DB::table('user')
+        $user = DB::table('user')
             ->where("email", $req->input("email"))
             ->where("password", $req->input("password"))
-            ->exists();
+            ->first('is_admin');
+
+        $payload = [
+            "email" => $req->input("email"),
+            "is_admin" => $user->is_admin ?? null
+        ];
 
         $jwt = JWT::encode($payload, $key, 'HS256');
 
-        if ($isUserExist) {
+        if ($user) {
             return response()->json(['token' => $jwt]);
         } else {
             return response()->json(['error' => 'Unauthorized'], 403);
@@ -58,7 +60,7 @@ class AuthController extends Controller
             ->where("email", $decoded->email)
             ->first('is_admin');
 
-        if ($user->is_admin != 1){
+        if ($user->is_admin != 1) {
             abort(401, 'Unauthorized');
         }
 
@@ -75,7 +77,7 @@ class AuthController extends Controller
             ->where("email", $decoded->email)
             ->first('is_admin');
 
-        if ($user->is_admin != 1){
+        if ($user->is_admin != 1) {
             abort(401, 'Unauthorized');
         }
 
@@ -98,7 +100,7 @@ class AuthController extends Controller
             ->where("email", $decoded->email)
             ->first('is_admin');
 
-        if ($user->is_admin != 1){
+        if ($user->is_admin != 1) {
             abort(401, 'Unauthorized');
         }
 

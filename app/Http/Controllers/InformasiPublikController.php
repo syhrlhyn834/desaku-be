@@ -28,7 +28,9 @@ class InformasiPublikController extends Controller
             $data = DB::table('berita');
         }
 
-        $data = $data->join('kategori_berita', 'berita.category_id', '=', 'kategori_berita.uuid');
+        $data = $data
+            ->join('kategori_berita', 'berita.category_id', '=', 'kategori_berita.uuid')
+            ->join('user', 'berita.user_id', '=', 'user.uuid');
 
         if ($req->query('category')) {
             $category = DB::table('kategori_berita')
@@ -41,11 +43,12 @@ class InformasiPublikController extends Controller
             // get total item base on category
             $total = DB::table('berita')
                 ->join('kategori_berita', 'berita.category_id', '=', 'kategori_berita.uuid')
+                ->join('user', 'berita.user_id', '=', 'user.uuid')
                 ->where("kategori_berita.slug", $req->query('category'))
                 ->count();
         }
 
-        $data = $data->select('berita.*', 'kategori_berita.name', 'kategori_berita.slug as category_slug')
+        $data = $data->select('berita.*', 'user.name as created_by', 'kategori_berita.name', 'kategori_berita.slug as category_slug')
             ->get();
 
         return response()->json([
@@ -64,7 +67,12 @@ class InformasiPublikController extends Controller
 
     public function findNewsBySlug($slug)
     {
-        $data = DB::table('berita')->where("slug", $slug)->first();
+        $data = DB::table('berita')
+            ->join('user', 'berita.user_id', '=', 'user.uuid')
+            ->join('kategori_berita', 'berita.category_id', '=', 'kategori_berita.uuid')
+            ->select('berita.*', 'user.name as created_by', 'kategori_berita.*', 'kategori_berita.name as category_name')
+            ->where("berita.slug", $slug)
+            ->first();
 
         return response()->json($data);
     }
@@ -154,6 +162,7 @@ class InformasiPublikController extends Controller
             "category_id" => $req->input("category_id"),
             "content" => $req->input("content"),
             "thumbnail" => $req->input("thumbnail"),
+            "user_id" => $req->input("user"),
             "created_at" => Carbon::now(),
             "updated_at" => Carbon::now(),
         ]);

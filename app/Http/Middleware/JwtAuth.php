@@ -14,6 +14,10 @@ class JwtAuth
     {
         try {
             $decoded = JWT::decode($request->bearerToken(), new Key('desaku89ajs', 'HS256'));
+            $request->merge([
+                'is_admin' => $decoded->is_admin == 1 ? true : false,
+                'user' => $decoded->user,
+            ]);
         } catch (LogicException $e) {
             abort(401, 'Unauthorized');
         } catch (UnexpectedValueException $e) {

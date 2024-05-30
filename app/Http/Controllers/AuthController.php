@@ -16,10 +16,11 @@ class AuthController extends Controller
         $user = DB::table('user')
             ->where("email", $req->input("email"))
             ->where("password", $req->input("password"))
-            ->first('is_admin');
+            ->select('is_admin', "uuid")
+            ->first();
 
         $payload = [
-            "email" => $req->input("email"),
+            "user" => $user->uuid,
             "is_admin" => $user->is_admin ?? null
         ];
 
@@ -34,10 +35,8 @@ class AuthController extends Controller
 
     public function findAdmin(Request $req)
     {
-        $decoded = JWT::decode($req->bearerToken(), new Key('desaku89ajs', 'HS256'));
-
         $user = DB::table('user')
-            ->where("email", $decoded->email)
+            ->where("uuid", $req->input('user'))
             ->first();
 
         return response()->json($user);

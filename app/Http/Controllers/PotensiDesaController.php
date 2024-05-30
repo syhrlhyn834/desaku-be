@@ -19,9 +19,9 @@ class PotensiDesaController extends Controller
         $query = $query->select('potensi_desa.*', 'kategori_potensi.name as category_name', 'kategori_potensi.slug as category_slug');
 
         if ($req->query('limit')) {
-            $data = $query->limit($req->query('limit'))->get();
+            $data = $query->limit($req->query('limit'))->orderBy('created_at', 'desc')->get();
         } else {
-            $data = $query->get();
+            $data = $query->orderBy('created_at', 'desc')->get();
         }
 
         $category = DB::table('kategori_potensi')
@@ -96,9 +96,9 @@ class PotensiDesaController extends Controller
                 ->join('kategori_potensi', 'potensi_desa.category', '=', 'kategori_potensi.uuid')
                 ->select('kategori_potensi.*')
                 ->distinct()
-                ->get();
+                ->orderBy('created_at', 'desc')->get();
         } else {
-            $data = DB::table('kategori_potensi')->get();
+            $data = DB::table('kategori_potensi')->orderBy('created_at', 'desc')->get();
         }
 
 

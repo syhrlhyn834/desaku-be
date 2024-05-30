@@ -10,9 +10,9 @@ class VideoGaleriController extends Controller
     public function getVideoGallery(Request $req)
     {
         if ($req->query('limit')) {
-            $data = DB::table('video_galeri')->limit($req->query('limit'))->get();
+            $data = DB::table('video_galeri')->limit($req->query('limit'))->orderBy('created_at', 'desc')->get();
         } else {
-            $data = DB::table('video_galeri')->get();
+            $data = DB::table('video_galeri')->orderBy('created_at', 'desc')->get();
         }
 
         return response()->json($data);

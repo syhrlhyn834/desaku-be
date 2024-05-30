@@ -9,7 +9,7 @@ class GambarGaleriController extends Controller
 {
     public function getImageGallery()
     {
-        $data =  DB::table('gambar_galeri')->get();
+        $data =  DB::table('gambar_galeri')->orderBy('created_at', 'desc')->get();
 
         return response()->json($data);
     }

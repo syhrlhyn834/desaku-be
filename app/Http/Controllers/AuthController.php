@@ -63,7 +63,7 @@ class AuthController extends Controller
             abort(401, 'Unauthorized');
         }
 
-        $users = DB::table('user')->whereNot("email", $decoded->email)->get();
+        $users = DB::table('user')->whereNot("email", $decoded->email)->orderBy('created_at', 'desc')->get();
 
         return response()->json($users);
     }

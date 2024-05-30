@@ -11,9 +11,9 @@ class PerangkatDesaController extends Controller
     public function getPerangkatDesa(Request $req)
     {
         if ($req->query('limit')) {
-            $data = DB::table('perangkat_desa')->limit($req->query('limit'))->get();
+            $data = DB::table('perangkat_desa')->limit($req->query('limit'))->orderBy('created_at', 'desc')->orderBy('created_at', 'desc')->get();
         } else {
-            $data = DB::table('perangkat_desa')->get();
+            $data = DB::table('perangkat_desa')->orderBy('created_at', 'desc')->orderBy('created_at', 'desc')->get();
         }
 
         return response()->json($data);

@@ -10,7 +10,7 @@ class GambarBerandaController extends Controller
 {
     public function getImageHomepage()
     {
-        $data =  DB::table('gambar_beranda')->get();
+        $data =  DB::table('gambar_beranda')->orderBy('created_at', 'desc')->get();
 
         return response()->json($data);
     }

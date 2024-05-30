@@ -9,7 +9,7 @@ class AlamatController extends Controller
 {
     public function getAlamat()
     {
-        $data =  DB::table('alamat')->get();
+        $data =  DB::table('alamat')->orderBy('created_at', 'desc')->get();
 
         return response()->json($data);
     }

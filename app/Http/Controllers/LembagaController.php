@@ -11,9 +11,9 @@ class LembagaController extends Controller
     public function getLembaga(Request $req)
     {
         if ($req->query('limit')) {
-            $data = DB::table('lembaga')->limit($req->query('limit'))->get();
+            $data = DB::table('lembaga')->limit($req->query('limit'))->orderBy('created_at', 'desc')->get();
         } else {
-            $data = DB::table('lembaga')->get();
+            $data = DB::table('lembaga')->orderBy('created_at', 'desc')->get();
         }
 
         return response()->json($data);

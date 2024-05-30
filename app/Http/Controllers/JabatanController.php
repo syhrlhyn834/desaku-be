@@ -10,7 +10,7 @@ class JabatanController extends Controller
 {
     public function getJabatan(Request $req)
     {
-        $data = DB::table('jabatan')->orderBy("order")->get();
+        $data = DB::table('jabatan')->orderBy("order")->orderBy('created_at', 'desc')->get();
 
         return response()->json($data);
     }
@@ -24,7 +24,7 @@ class JabatanController extends Controller
 
     public function findJabatanPerangkat($id)
     {
-        $data = DB::table('perangkat_desa')->where("job_id", $id)->get();
+        $data = DB::table('perangkat_desa')->where("job_id", $id)->orderBy('created_at', 'desc')->get();
 
         return response()->json($data);
     }

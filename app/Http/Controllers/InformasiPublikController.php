@@ -49,7 +49,8 @@ class InformasiPublikController extends Controller
         }
 
         $data = $data->select('berita.*', 'user.name as created_by', 'kategori_berita.name', 'kategori_berita.slug as category_slug')
-            ->get();
+            ->orderBy('created_at', 'desc')
+            ->orderBy('created_at', 'desc')->get();
 
         return response()->json([
             "data" => $data,
@@ -95,9 +96,11 @@ class InformasiPublikController extends Controller
     public function getAnnouncement(Request $req)
     {
         if ($req->query('limit')) {
-            $data = DB::table('pengumuman')->limit($req->query('limit'))->get();
+            $data = DB::table('pengumuman')->limit($req->query('limit'))->orderBy('created_at', 'desc')->orderBy('created_at', 'desc')->get();
         } else {
-            $data = DB::table('pengumuman')->get();
+            $data = DB::table('pengumuman')
+                ->orderBy('created_at', 'desc')
+                ->orderBy('created_at', 'desc')->get();
         }
 
         return response()->json($data);
@@ -184,9 +187,9 @@ class InformasiPublikController extends Controller
                 ->join('kategori_berita', 'berita.category_id', '=', 'kategori_berita.uuid')
                 ->select('kategori_berita.*')
                 ->distinct()
-                ->get();
+                ->orderBy('created_at', 'desc')->get();
         } else {
-            $data = DB::table('kategori_berita')->get();
+            $data = DB::table('kategori_berita')->orderBy('created_at', 'desc')->get();
         }
 
         return response()->json($data);
@@ -230,9 +233,9 @@ class InformasiPublikController extends Controller
     public function getActivities(Request $req)
     {
         if ($req->query('limit')) {
-            $data = DB::table('kegiatan')->limit($req->query('limit'))->get();
+            $data = DB::table('kegiatan')->limit($req->query('limit'))->orderBy('created_at', 'desc')->orderBy('created_at', 'desc')->get();
         } else {
-            $data = DB::table('kegiatan')->get();
+            $data = DB::table('kegiatan')->orderBy('created_at', 'desc')->orderBy('created_at', 'desc')->get();
         }
 
         return response()->json($data);

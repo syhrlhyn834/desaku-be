@@ -1,3 +1,4 @@
+
 USE `desaku`;
 
 CREATE TABLE IF NOT EXISTS `alamat` (
@@ -33,11 +34,9 @@ INSERT INTO `berita` (`uuid`, `title`, `slug`, `description`, `category_id`, `th
 	('f92ab999-5c43-4594-aee4-0f31a1sbfa7b', 'BPBD DIY Petakan Potensi Bencana di Kawasan Sumbu Filosofi', 'bpbd-diy-petakan-potensi-bencana-di-kawasan-sumbu-filosofi4', 'BPBD DIY memetakan sejumlah potensi bencana yang ada di kawasan Sumbu Filosofi menindaklanjuti rekomendasi Unesco setelah ditetapkan sebagai warisan budaya dunia.', 'a0ee3220-54c3-4c77-a36c-fa2437918da9', 'http://api.desaku.muhichsan.com/storage/1715254265.jpeg', '<p>Harianjogja.com, JOGJA&nbsp;- BPBD DIY memetakan sejumlah potensi bencana yang ada di kawasan Sumbu Filosofi menindaklanjuti rekomendasi Unesco setelah ditetapkan sebagai warisan budaya dunia. Pemetaan itu bertujuan untuk menyusun rencana manajemen risiko kebencanaan di kawasan setempat.&nbsp;</p><p>Kepala BPBD DIY Noviar Rahmad mengatakan, pihaknya bekerja sama dengan Dinas Kebudayaan dan Kementerian Kebudayaan dalam menyusun dokumen itu dan didukung oleh Bank Dunia. Setelahnya, akan digelar pelatihan kepada sumber daya manusia (SDM) bagi segenap pemangku kepentingan yang ada di kawasan sumbu filosofi.&nbsp;</p>', 'c2a7d546-b5f7-43a0-a71c-363c9019efb3', '2024-05-16 16:40:57', '2024-05-25 13:50:29'),
 	('f92ab999-5c43-4594-aee4-0f31a1ebfa7b', 'BPBD DIY Petakan Potensi Bencana di Kawasan Sumbu Filosofi', 'bpbd-diy-petakan-potensi-bencana-di-kawasan-sumbu-filosofi4', 'BPBD DIY memetakan sejumlah potensi bencana yang ada di kawasan Sumbu Filosofi menindaklanjuti rekomendasi Unesco setelah ditetapkan sebagai warisan budaya dunia.', 'a0ee3220-54c3-4c77-a36c-fa2437918da9', 'http://api.desaku.muhichsan.com/storage/1715254265.jpeg', '<p>Harianjogja.com, JOGJA&nbsp;- BPBD DIY memetakan sejumlah potensi bencana yang ada di kawasan Sumbu Filosofi menindaklanjuti rekomendasi Unesco setelah ditetapkan sebagai warisan budaya dunia. Pemetaan itu bertujuan untuk menyusun rencana manajemen risiko kebencanaan di kawasan setempat.&nbsp;</p><p>Kepala BPBD DIY Noviar Rahmad mengatakan, pihaknya bekerja sama dengan Dinas Kebudayaan dan Kementerian Kebudayaan dalam menyusun dokumen itu dan didukung oleh Bank Dunia. Setelahnya, akan digelar pelatihan kepada sumber daya manusia (SDM) bagi segenap pemangku kepentingan yang ada di kawasan sumbu filosofi.&nbsp;</p>', 'c2a7d546-b5f7-43a0-a71c-363c9019efb3', '2024-05-16 16:40:57', '2024-05-25 13:50:29'),
 	('f92ab999-5c43-4594-ase4-0f31a1sbfa7b', 'Minum', 'bpbd-diy-petakan-potensi-bencana-di-kawasan-sumbu-filosofi4', 'BPBD DIY memetakan sejumlah potensi bencana yang ada di kawasan Sumbu Filosofi menindaklanjuti rekomendasi Unesco setelah ditetapkan sebagai warisan budaya dunia.', 'a0ee3220-54c3-4c77-a36c-fa2437918da9', 'http://api.desaku.muhichsan.com/storage/1715254265.jpeg', '<p>Harianjogja.com, JOGJA&nbsp;- BPBD DIY memetakan sejumlah potensi bencana yang ada di kawasan Sumbu Filosofi menindaklanjuti rekomendasi Unesco setelah ditetapkan sebagai warisan budaya dunia. Pemetaan itu bertujuan untuk menyusun rencana manajemen risiko kebencanaan di kawasan setempat.&nbsp;</p><p>Kepala BPBD DIY Noviar Rahmad mengatakan, pihaknya bekerja sama dengan Dinas Kebudayaan dan Kementerian Kebudayaan dalam menyusun dokumen itu dan didukung oleh Bank Dunia. Setelahnya, akan digelar pelatihan kepada sumber daya manusia (SDM) bagi segenap pemangku kepentingan yang ada di kawasan sumbu filosofi.&nbsp;</p>', 'c2a7d546-b5f7-43a0-a71c-363c9019efb3', '2024-05-16 16:40:57', '2024-05-25 13:50:29'),
-	('f92ab999-5ca43-4494-aee4-0f31a1ebfa7b', 'BPBD DIY Petakan Potensi Bencana di Kawasan Sumbu Filosofi', 'bpbd-diy-petakan-potensi-bencana-di-kawasan-sumbu-filosofi5', 'BPBD DIY memetakan sejumlah potensi bencana yang ada di kawasan Sumbu Filosofi menindaklanjuti rekomendasi Unesco setelah ditetapkan sebagai warisan budaya dunia.', '859f39a9-b0c4-4811-a741-2e2eb8473205', 'http://api.desaku.muhichsan.com/storage/1715254265.jpeg', '<p>Harianjogja.com, JOGJA&nbsp;- BPBD DIY memetakan sejumlah potensi bencana yang ada di kawasan Sumbu Filosofi menindaklanjuti rekomendasi Unesco setelah ditetapkan sebagai warisan budaya dunia. Pemetaan itu bertujuan untuk menyusun rencana manajemen risiko kebencanaan di kawasan setempat.&nbsp;</p><p>Kepala BPBD DIY Noviar Rahmad mengatakan, pihaknya bekerja sama dengan Dinas Kebudayaan dan Kementerian Kebudayaan dalam menyusun dokumen itu dan didukung oleh Bank Dunia. Setelahnya, akan digelar pelatihan kepada sumber daya manusia (SDM) bagi segenap pemangku kepentingan yang ada di kawasan sumbu filosofi.&nbsp;</p>', 'c2a7d546-b5f7-43a0-a71c-363c9019efb3', '2024-05-16 16:40:57', '2024-05-25 13:50:38'),
-	('f92ab999-5c43-4494-aeae4-0f31a1ebfa7b', 'BPBD DIY Petakan Potensi Bencana di Kawasan Sumbu Filosofi', 'bpbd-diy-petakan-potensi-bencana-di-kawasan-sumbu-filosofi5', 'BPBD DIY memetakan sejumlah potensi bencana yang ada di kawasan Sumbu Filosofi menindaklanjuti rekomendasi Unesco setelah ditetapkan sebagai warisan budaya dunia.', '859f39a9-b0c4-4811-a741-2e2eb8473205', 'http://api.desaku.muhichsan.com/storage/1715254265.jpeg', '<p>Harianjogja.com, JOGJA&nbsp;- BPBD DIY memetakan sejumlah potensi bencana yang ada di kawasan Sumbu Filosofi menindaklanjuti rekomendasi Unesco setelah ditetapkan sebagai warisan budaya dunia. Pemetaan itu bertujuan untuk menyusun rencana manajemen risiko kebencanaan di kawasan setempat.&nbsp;</p><p>Kepala BPBD DIY Noviar Rahmad mengatakan, pihaknya bekerja sama dengan Dinas Kebudayaan dan Kementerian Kebudayaan dalam menyusun dokumen itu dan didukung oleh Bank Dunia. Setelahnya, akan digelar pelatihan kepada sumber daya manusia (SDM) bagi segenap pemangku kepentingan yang ada di kawasan sumbu filosofi.&nbsp;</p>', 'c2a7d546-b5f7-43a0-a71c-363c9019efb3', '2024-05-16 16:40:57', '2024-05-25 13:50:38'),
-	('f92ab999-5c43-4494-aewe4-0f31a1ebfa7b', 'Kolak', 'bpbd-diy-petakan-potensi-bencana-di-kawasan-sumbu-filosofi5', 'BPBD DIY memetakan sejumlah potensi bencana yang ada di kawasan Sumbu Filosofi menindaklanjuti rekomendasi Unesco setelah ditetapkan sebagai warisan budaya dunia.', '859f39a9-b0c4-4811-a741-2e2eb8473205', 'http://api.desaku.muhichsan.com/storage/1715254265.jpeg', '<p>Harianjogja.com, JOGJA&nbsp;- BPBD DIY memetakan sejumlah potensi bencana yang ada di kawasan Sumbu Filosofi menindaklanjuti rekomendasi Unesco setelah ditetapkan sebagai warisan budaya dunia. Pemetaan itu bertujuan untuk menyusun rencana manajemen risiko kebencanaan di kawasan setempat.&nbsp;</p><p>Kepala BPBD DIY Noviar Rahmad mengatakan, pihaknya bekerja sama dengan Dinas Kebudayaan dan Kementerian Kebudayaan dalam menyusun dokumen itu dan didukung oleh Bank Dunia. Setelahnya, akan digelar pelatihan kepada sumber daya manusia (SDM) bagi segenap pemangku kepentingan yang ada di kawasan sumbu filosofi.&nbsp;</p>', 'c2a7d546-b5f7-43a0-a71c-363c9019efb3', '2024-05-16 16:40:57', '2024-05-25 13:50:38'),
-	('f92ab999-5c43-4494-aese4-0f31a1ebfa7b', 'BPBD DIY Petakan Potensi Bencana di Kawasan Sumbu Filosofi', 'bpbd-diy-petakan-potensi-bencana-di-kawasan-sumbu-filosofi5', 'BPBD DIY memetakan sejumlah potensi bencana yang ada di kawasan Sumbu Filosofi menindaklanjuti rekomendasi Unesco setelah ditetapkan sebagai warisan budaya dunia.', '859f39a9-b0c4-4811-a741-2e2eb8473205', 'http://api.desaku.muhichsan.com/storage/1715254265.jpeg', '<p>Harianjogja.com, JOGJA&nbsp;- BPBD DIY memetakan sejumlah potensi bencana yang ada di kawasan Sumbu Filosofi menindaklanjuti rekomendasi Unesco setelah ditetapkan sebagai warisan budaya dunia. Pemetaan itu bertujuan untuk menyusun rencana manajemen risiko kebencanaan di kawasan setempat.&nbsp;</p><p>Kepala BPBD DIY Noviar Rahmad mengatakan, pihaknya bekerja sama dengan Dinas Kebudayaan dan Kementerian Kebudayaan dalam menyusun dokumen itu dan didukung oleh Bank Dunia. Setelahnya, akan digelar pelatihan kepada sumber daya manusia (SDM) bagi segenap pemangku kepentingan yang ada di kawasan sumbu filosofi.&nbsp;</p>', 'c2a7d546-b5f7-43a0-a71c-363c9019efb3', '2024-05-16 16:40:57', '2024-05-25 13:50:38'),
-	('fb20dabb-b32d-454c-ab53-4874a14a92a9', 'Baru', 'baru', 'asas', '256c131e-6162-4db1-a8f3-d0fad33ac4a2', NULL, '<p>asas</p>', '376738e4-d859-42a5-b50c-728fab99dd49', '2024-05-30 03:34:44', '2024-05-30 03:34:44');
+	('f92ab999-5ca43-4494-aee4-0f31a1ebfa7b', 'BPBD DIY Petakan Potensi Bencana di Kawasan Sumbu Filosofi', 'bpbd-diy-petakan-potensi-bencana-di-kawasan-sumbu-filosofi', 'BPBD DIY memetakan sejumlah potensi bencana yang ada di kawasan Sumbu Filosofi menindaklanjuti rekomendasi Unesco setelah ditetapkan sebagai warisan budaya dunia.', '859f39a9-b0c4-4811-a741-2e2eb8473205', 'http://api.desaku.muhichsan.com/storage/1715853652.jpg', '<p>Harianjogja.com, JOGJA&nbsp;- BPBD DIY memetakan sejumlah potensi bencana yang ada di kawasan Sumbu Filosofi menindaklanjuti rekomendasi Unesco setelah ditetapkan sebagai warisan budaya dunia. Pemetaan itu bertujuan untuk menyusun rencana manajemen risiko kebencanaan di kawasan setempat.&nbsp;</p><p>Kepala BPBD DIY Noviar Rahmad mengatakan, pihaknya bekerja sama dengan Dinas Kebudayaan dan Kementerian Kebudayaan dalam menyusun dokumen itu dan didukung oleh Bank Dunia. Setelahnya, akan digelar pelatihan kepada sumber daya manusia (SDM) bagi segenap pemangku kepentingan yang ada di kawasan sumbu filosofi.&nbsp;</p>', 'c2a7d546-b5f7-43a0-a71c-363c9019efb3', '2024-05-16 16:40:57', '2024-05-30 12:22:48'),
+	('f92ab999-5c43-4494-aeae4-0f31a1ebfa7b', 'BPBD DIY Petakan Potensi Bencana di Kawasan Sumbu Filosofi', 'bpbd-diy-petakan-potensi-bencana-di-kawasan-sumbu-filosofi', 'BPBD DIY memetakan sejumlah potensi bencana yang ada di kawasan Sumbu Filosofi menindaklanjuti rekomendasi Unesco setelah ditetapkan sebagai warisan budaya dunia.', '859f39a9-b0c4-4811-a741-2e2eb8473205', 'http://api.desaku.muhichsan.com/storage/1715853488.jpg', '<p>Harianjogja.com, JOGJA&nbsp;- BPBD DIY memetakan sejumlah potensi bencana yang ada di kawasan Sumbu Filosofi menindaklanjuti rekomendasi Unesco setelah ditetapkan sebagai warisan budaya dunia. Pemetaan itu bertujuan untuk menyusun rencana manajemen risiko kebencanaan di kawasan setempat.&nbsp;</p><p>Kepala BPBD DIY Noviar Rahmad mengatakan, pihaknya bekerja sama dengan Dinas Kebudayaan dan Kementerian Kebudayaan dalam menyusun dokumen itu dan didukung oleh Bank Dunia. Setelahnya, akan digelar pelatihan kepada sumber daya manusia (SDM) bagi segenap pemangku kepentingan yang ada di kawasan sumbu filosofi.&nbsp;</p>', 'c2a7d546-b5f7-43a0-a71c-363c9019efb3', '2024-05-16 16:40:57', '2024-05-30 12:22:27'),
+	('f92ab999-5c43-4494-aese4-0f31a1ebfa7b', 'BPBD DIY Petakan Potensi Bencana di Kawasan Sumbu Filosofi', 'bpbd-diy-petakan-potensi-bencana-di-kawasan-sumbu-filosofi5', 'BPBD DIY memetakan sejumlah potensi bencana yang ada di kawasan Sumbu Filosofi menindaklanjuti rekomendasi Unesco setelah ditetapkan sebagai warisan budaya dunia.', '859f39a9-b0c4-4811-a741-2e2eb8473205', 'http://api.desaku.muhichsan.com/storage/1715254265.jpeg', '<p>Harianjogja.com, JOGJA&nbsp;- BPBD DIY memetakan sejumlah potensi bencana yang ada di kawasan Sumbu Filosofi menindaklanjuti rekomendasi Unesco setelah ditetapkan sebagai warisan budaya dunia. Pemetaan itu bertujuan untuk menyusun rencana manajemen risiko kebencanaan di kawasan setempat.&nbsp;</p><p>Kepala BPBD DIY Noviar Rahmad mengatakan, pihaknya bekerja sama dengan Dinas Kebudayaan dan Kementerian Kebudayaan dalam menyusun dokumen itu dan didukung oleh Bank Dunia. Setelahnya, akan digelar pelatihan kepada sumber daya manusia (SDM) bagi segenap pemangku kepentingan yang ada di kawasan sumbu filosofi.&nbsp;</p>', 'c2a7d546-b5f7-43a0-a71c-363c9019efb3', '2024-05-16 16:40:57', '2024-05-25 13:50:38');
 
 CREATE TABLE IF NOT EXISTS `footer` (
   `uuid` char(50) DEFAULT NULL,
@@ -68,16 +67,17 @@ INSERT INTO `gambar_beranda` (`uuid`, `description`, `url`, `created_at`, `updat
 CREATE TABLE IF NOT EXISTS `gambar_galeri` (
   `uuid` char(50) DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL,
-  `url` char(200) DEFAULT NULL
+  `url` char(200) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB;
 
-INSERT INTO `gambar_galeri` (`uuid`, `description`, `url`) VALUES
-	('a6438de3-3d85-4415-bc35-039a6045d119', 'Makan Roti', 'http://api.desaku.muhichsan.com/storage/1715851406.jpg'),
-	('88d13dd1-6481-4416-a01e-e8de24a04f75', 'Kerja Bakti', 'http://api.desaku.muhichsan.com/storage/1715853652.jpg'),
-	('2acd9176-73b8-42a7-acc3-15cf02f3035e', 'Memajukan bangsa', 'http://api.desaku.muhichsan.com/storage/1715853488.jpg'),
-	('10eea844-8ac5-48ff-90b8-f0f9bff5aac5', 'Makan', 'http://api.desaku.muhichsan.com/storage/1715851406.jpg'),
-	('3243cd5d-a377-4239-8233-5849f044086b', 'Kerja Bakti Kereta Wush', 'http://api.desaku.muhichsan.com/storage/1715489819.jpeg'),
-	('211f4539-3eea-4614-a104-83ef670f8136', 'Makan Bareng Baru', 'http://api.desaku.muhichsan.com/storage/1715489819.jpeg');
+INSERT INTO `gambar_galeri` (`uuid`, `description`, `url`, `created_at`) VALUES
+	('a6438de3-3d85-4415-bc35-039a6045d119', 'Makan Roti', 'http://api.desaku.muhichsan.com/storage/1715851406.jpg', NULL),
+	('88d13dd1-6481-4416-a01e-e8de24a04f75', 'Kerja Bakti', 'http://api.desaku.muhichsan.com/storage/1715853652.jpg', NULL),
+	('2acd9176-73b8-42a7-acc3-15cf02f3035e', 'Memajukan bangsa', 'http://api.desaku.muhichsan.com/storage/1715853488.jpg', NULL),
+	('10eea844-8ac5-48ff-90b8-f0f9bff5aac5', 'Makan', 'http://api.desaku.muhichsan.com/storage/1715851406.jpg', NULL),
+	('3243cd5d-a377-4239-8233-5849f044086b', 'Kerja Bakti Kereta Wush', 'http://api.desaku.muhichsan.com/storage/1715489819.jpeg', NULL),
+	('211f4539-3eea-4614-a104-83ef670f8136', 'Makan Bareng Baru', 'http://api.desaku.muhichsan.com/storage/1715489819.jpeg', NULL);
 
 CREATE TABLE IF NOT EXISTS `header` (
   `uuid` char(50) DEFAULT NULL,
@@ -106,26 +106,28 @@ INSERT INTO `jabatan` (`uuid`, `name`, `order`) VALUES
 CREATE TABLE IF NOT EXISTS `kategori_berita` (
   `uuid` char(50) DEFAULT NULL,
   `name` char(200) DEFAULT NULL,
-  `slug` char(200) DEFAULT NULL
+  `slug` char(200) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB;
 
-INSERT INTO `kategori_berita` (`uuid`, `name`, `slug`) VALUES
-	('859f39a9-b0c4-4811-a741-2e2eb8473205', 'Informasi Umum', 'informasi-umum'),
-	('256c131e-6162-4db1-a8f3-d0fad33ac4a2', 'Kecelakaan', 'kecelakaan'),
-	('f3eb3ccf-6cf2-4bcf-9c35-c4d7dffdecbf', 'Pendidikan', 'pendidikan'),
-	('344d1288-5913-428c-a790-74cdd6c6949d', 'Hiburan Joko', 'hiburan-joko'),
-	('a0ee3220-54c3-4c77-a36c-fa2437918da9', 'Halo Kolak', 'halo-kolak'),
-	('af9f720b-5d92-4aae-995d-faf397db5870', 'as', 'as');
+INSERT INTO `kategori_berita` (`uuid`, `name`, `slug`, `created_at`) VALUES
+	('859f39a9-b0c4-4811-a741-2e2eb8473205', 'Informasi Umum', 'informasi-umum', NULL),
+	('256c131e-6162-4db1-a8f3-d0fad33ac4a2', 'Kecelakaan', 'kecelakaan', NULL),
+	('f3eb3ccf-6cf2-4bcf-9c35-c4d7dffdecbf', 'Pendidikan', 'pendidikan', NULL),
+	('344d1288-5913-428c-a790-74cdd6c6949d', 'Hiburan Joko', 'hiburan-joko', NULL),
+	('a0ee3220-54c3-4c77-a36c-fa2437918da9', 'Halo Kolak', 'halo-kolak', NULL),
+	('af9f720b-5d92-4aae-995d-faf397db5870', 'as', 'as', NULL);
 
 CREATE TABLE IF NOT EXISTS `kategori_potensi` (
   `uuid` char(50) DEFAULT NULL,
   `name` char(200) DEFAULT NULL,
-  `slug` char(200) DEFAULT NULL
+  `slug` char(200) DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB;
 
-INSERT INTO `kategori_potensi` (`uuid`, `name`, `slug`) VALUES
-	('1d41331a-eb37-4941-8d44-6b0e32671717', 'Potensi Peternakan', 'potensi-peternakan'),
-	('e861055a-89b7-484f-9a0d-c30ea358deef', 'Potensi Pariwisata', 'potensi-pariwisata');
+INSERT INTO `kategori_potensi` (`uuid`, `name`, `slug`, `created_at`) VALUES
+	('1d41331a-eb37-4941-8d44-6b0e32671717', 'Potensi Peternakan', 'potensi-peternakan', NULL),
+	('e861055a-89b7-484f-9a0d-c30ea358deef', 'Potensi Pariwisata', 'potensi-pariwisata', NULL);
 
 CREATE TABLE IF NOT EXISTS `kegiatan` (
   `uuid` char(50) DEFAULT NULL,
@@ -233,7 +235,7 @@ INSERT INTO `potensi_desa` (`uuid`, `title`, `slug`, `description`, `category`, 
 	('6c77927b-0e53-4553-8f7b-f5f070c636a1', 'Mobil Seruduk Motor yang Terparkir, Begini Penjelasan Polisi', 'mobil-seruduk-motor-yang-terparkir-begini-penjelasan-polisi', 'BANDUNG – Beredar sebuah video rekaman CCTV yang memperlihatkan sebuah mobil yang menabrak sepeda motor yang tengah terparkir.', 'e861055a-89b7-484f-9a0d-c30ea358deef', 'http://api.desaku.muhichsan.com/storage/1715254086.jpeg', '<p>Menurutnya, pengemudi merupakan orang tua dan tengah bersama keluarganya.</p><p><br></p><p>Awalnya, pengemudi tengah mencari tempat parkir sampai beberapa kali memutar balik, tapi&nbsp;belum menemukan tempat parkir yang kosong.</p><p><br></p><p>Namun pada putaran terakhir, pengemudi hendak mengerem kendaraan karena di depannya terdapat truk namun remnya blong.</p><p><br></p><p>“Dia keliling sampai dua kali terus terhalangi oleh mobil, dia mengerem tapi rem blong untuk menghindari tabrakan dia membanting ke kanan akhirnya menabrak motor. Ada enam motor yang tertabrak, tidak ada korban,” bebernya saat dihubungi, Sabtu (2/4/2022).“Mobilnya dikerubuti massa tapi mereka pada sadar dan paham diselesaikan secara kekeluargaan di polsek dan laka lantas ditangani oleh unit laka lantas Polrestabes Bandung,” kata Kapolsek Lengkong.</p><p>Kini pengemudi dan pemilik motor akhirnya berdamai dan mau mengganti kerusakan.</p>', '2024-05-26 14:35:07');
 
 CREATE TABLE IF NOT EXISTS `profil_desa` (
-  `uuid` char(36)  NOT NULL,
+  `uuid` char(36) NOT NULL,
   `visi` longtext NOT NULL,
   `tentang` longtext,
   `sejarah` longtext NOT NULL,
@@ -269,24 +271,26 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(200) DEFAULT NULL,
   `name` char(50) DEFAULT NULL,
   `password` char(50) DEFAULT NULL,
-  `is_admin` tinyint DEFAULT NULL
+  `is_admin` tinyint DEFAULT NULL,
+  `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB;
 
-INSERT INTO `user` (`uuid`, `email`, `name`, `password`, `is_admin`) VALUES
-	('376738e4-d859-42a5-b50c-728fab99dd49', 'admin@desaku.id', 'Jokowi Dodo', '123', 1),
-	('c2a7d546-b5f7-43a0-a71c-363c9019efb3', 'ichsanfadhil67@gmail.com', 'Jokowi Dodo', '123', 0);
+INSERT INTO `user` (`uuid`, `email`, `name`, `password`, `is_admin`, `created_at`) VALUES
+	('376738e4-d859-42a5-b50c-728fab99dd49', 'admin@desaku.id', 'Jokowi Dodo', '123', 1, NULL),
+	('c2a7d546-b5f7-43a0-a71c-363c9019efb3', 'ichsanfadhil67@gmail.com', 'Jokowi Dodo', '123', 0, NULL);
 
 CREATE TABLE IF NOT EXISTS `video_galeri` (
   `uuid` char(50) DEFAULT NULL,
   `description` text,
-  `url` text
+  `url` text,
+  `created_at` datetime DEFAULT NULL
 ) ENGINE=InnoDB;
 
-INSERT INTO `video_galeri` (`uuid`, `description`, `url`) VALUES
-	('6625ce64-6b12-46c6-b485-463586a2ac85', 'asas', 'https://www.youtube.com/embed/xrHFh1cImIY?si=BBqgVx3bpZt0M6TF'),
-	('3b0d80b7-3ea4-4773-ae06-fbb1c4685a34', 'Makan', 'https://www.youtube.com/embed/xrHFh1cImIY?si=BBqgVx3bpZt0M6TF'),
-	('3f1ebad4-b736-480d-adcb-d40f79e370c0', 'Review Starlink di desa', 'https://www.youtube.com/embed/RF6y2vGLT1c?si=FupOgKlwvj7iosLe'),
-	('f1c895f3-73b6-4583-a62f-c7d8f7fb8dd4', 'Mas elon suka makan', 'https://www.youtube.com/embed/RF6y2vGLT1c?si=FupOgKlwvj7iosLe'),
-	('f2445ee4-6680-4f22-9f5f-d85d12aed6b6', 'Why', 'https://www.youtube.com/embed/RF6y2vGLT1c?si=FupOgKlwvj7iosLe'),
-	('b07d9a33-865d-4453-a824-5e22c42011ea', 'Elon haha', 'https://www.youtube.com/embed/RF6y2vGLT1c?si=FupOgKlwvj7iosLe'),
-	('9ced3692-7beb-4ad4-a624-873708e4815e', 'Koko', 'https://www.youtube.com/embed/RF6y2vGLT1c?si=FupOgKlwvj7iosLe');
+INSERT INTO `video_galeri` (`uuid`, `description`, `url`, `created_at`) VALUES
+	('6625ce64-6b12-46c6-b485-463586a2ac85', 'asas', 'https://www.youtube.com/embed/xrHFh1cImIY?si=BBqgVx3bpZt0M6TF', NULL),
+	('3b0d80b7-3ea4-4773-ae06-fbb1c4685a34', 'Makan', 'https://www.youtube.com/embed/xrHFh1cImIY?si=BBqgVx3bpZt0M6TF', NULL),
+	('3f1ebad4-b736-480d-adcb-d40f79e370c0', 'Review Starlink di desa', 'https://www.youtube.com/embed/RF6y2vGLT1c?si=FupOgKlwvj7iosLe', NULL),
+	('f1c895f3-73b6-4583-a62f-c7d8f7fb8dd4', 'Mas elon suka makan', 'https://www.youtube.com/embed/RF6y2vGLT1c?si=FupOgKlwvj7iosLe', NULL),
+	('f2445ee4-6680-4f22-9f5f-d85d12aed6b6', 'Why', 'https://www.youtube.com/embed/RF6y2vGLT1c?si=FupOgKlwvj7iosLe', NULL),
+	('b07d9a33-865d-4453-a824-5e22c42011ea', 'Elon haha', 'https://www.youtube.com/embed/RF6y2vGLT1c?si=FupOgKlwvj7iosLe', NULL),
+	('9ced3692-7beb-4ad4-a624-873708e4815e', 'Koko', 'https://www.youtube.com/embed/RF6y2vGLT1c?si=FupOgKlwvj7iosLe', NULL);

@@ -9,13 +9,29 @@ class VideoGaleriController extends Controller
 {
     public function getVideoGallery(Request $req)
     {
-        if ($req->query('limit')) {
-            $data = DB::table('video_galeri')->limit($req->query('limit'))->orderBy('created_at', 'desc')->get();
+        $total = DB::table('video_galeri')->count();
+
+        if ($req->query('limit') && $req->query('page')) {
+            // pagination data
+            $offset = $req->query('page') * $req->query('limit') - $req->query('limit');
+
+            $data = DB::table('video_galeri')
+                ->limit($req->query('limit'))
+                ->offset($offset);
+        } else if ($req->query('limit') && !$req->query('offset')) {
+            // latest news
+            $data = DB::table('video_galeri')
+                ->limit($req->query('limit'));
         } else {
-            $data = DB::table('video_galeri')->orderBy('created_at', 'desc')->get();
+            $data = DB::table('video_galeri');
         }
 
-        return response()->json($data);
+        $data = $data->orderBy('created_at', 'desc')->get();
+
+        return response()->json([
+            "data" => $data,
+            "total" => $total,
+        ]);
     }
 
     public function addVideoGallery(Request $req)

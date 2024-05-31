@@ -71,7 +71,7 @@ class InformasiPublikController extends Controller
         $data = DB::table('berita')
             ->join('user', 'berita.user_id', '=', 'user.uuid')
             ->join('kategori_berita', 'berita.category_id', '=', 'kategori_berita.uuid')
-            ->select('berita.*', 'user.name as created_by', 'kategori_berita.*', 'kategori_berita.name as category_name')
+            ->select('berita.*', 'user.name as created_by', 'kategori_berita.slug', 'kategori_berita.name as category_name')
             ->where("berita.slug", $slug)
             ->first();
 
@@ -95,15 +95,29 @@ class InformasiPublikController extends Controller
 
     public function getAnnouncement(Request $req)
     {
-        if ($req->query('limit')) {
-            $data = DB::table('pengumuman')->limit($req->query('limit'))->orderBy('created_at', 'desc')->orderBy('created_at', 'desc')->get();
-        } else {
+        $total = DB::table('pengumuman')->count();
+
+        if ($req->query('limit') && $req->query('page')) {
+            // pagination data
+            $offset = $req->query('page') * 5 - 5;
+
             $data = DB::table('pengumuman')
-                ->orderBy('created_at', 'desc')
-                ->orderBy('created_at', 'desc')->get();
+                ->limit($req->query('limit'))
+                ->offset($offset);
+        } else if ($req->query('limit') && !$req->query('offset')) {
+            // latest news
+            $data = DB::table('pengumuman')
+                ->limit($req->query('limit'));
+        } else {
+            $data = DB::table('pengumuman');
         }
 
-        return response()->json($data);
+        $data = $data->orderBy('created_at', 'desc')->get();
+
+        return response()->json([
+            "data" => $data,
+            "total" => $total,
+        ]);
     }
 
     public function findAnnouncement($id)
@@ -232,13 +246,29 @@ class InformasiPublikController extends Controller
 
     public function getActivities(Request $req)
     {
-        if ($req->query('limit')) {
-            $data = DB::table('kegiatan')->limit($req->query('limit'))->orderBy('created_at', 'desc')->orderBy('created_at', 'desc')->get();
+        $total = DB::table('kegiatan')->count();
+
+        if ($req->query('limit') && $req->query('page')) {
+            // pagination data
+            $offset = $req->query('page') * 5 - 5;
+
+            $data = DB::table('kegiatan')
+                ->limit($req->query('limit'))
+                ->offset($offset);
+        } else if ($req->query('limit') && !$req->query('offset')) {
+            // latest news
+            $data = DB::table('kegiatan')
+                ->limit($req->query('limit'));
         } else {
-            $data = DB::table('kegiatan')->orderBy('created_at', 'desc')->orderBy('created_at', 'desc')->get();
+            $data = DB::table('kegiatan');
         }
 
-        return response()->json($data);
+        $data = $data->orderBy('created_at', 'desc')->get();
+
+        return response()->json([
+            "data" => $data,
+            "total" => $total,
+        ]);
     }
 
     public function findActivities($id)
@@ -263,6 +293,7 @@ class InformasiPublikController extends Controller
             "slug" => $req->input("slug"),
             "description" => $req->input("description"),
             "content" => $req->input("content"),
+            "thumbnail" => $req->input("thumbnail"),
             "created_at" => Carbon::now(),
             "updated_at" => Carbon::now()
         ]);
@@ -275,6 +306,7 @@ class InformasiPublikController extends Controller
         $data = DB::table('kegiatan')->where("uuid", $id)->update([
             "title" => $req->input("title"),
             "description" => $req->input("description"),
+            "thumbnail" => $req->input("thumbnail"),
             "content" => $req->input("content"),
             "updated_at" => Carbon::now()
         ]);

@@ -133,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `kegiatan` (
   `title` text,
   `slug` varchar(100) DEFAULT NULL,
   `description` text,
-  `thumbnail` varchar(50) DEFAULT NULL,
+  `thumbnail` varchar(200) DEFAULT NULL,
   `content` text,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL

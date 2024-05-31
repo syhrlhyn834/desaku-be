@@ -53,30 +53,18 @@ class AuthController extends Controller
 
     public function getAdmin(Request $req)
     {
-        $decoded = JWT::decode($req->bearerToken(), new Key('desaku89ajs', 'HS256'));
-
-        $user = DB::table('user')
-            ->where("email", $decoded->email)
-            ->first('is_admin');
-
-        if ($user->is_admin != 1) {
+        if ($req->input("is_admin") != 1) {
             abort(401, 'Unauthorized');
         }
 
-        $users = DB::table('user')->whereNot("email", $decoded->email)->orderBy('created_at', 'desc')->get();
+        $users = DB::table('user')->whereNot("uuid", $req->input('user'))->orderBy('created_at', 'desc')->get();
 
         return response()->json($users);
     }
 
     public function addAdmin(Request $req)
     {
-        $decoded = JWT::decode($req->bearerToken(), new Key('desaku89ajs', 'HS256'));
-
-        $user = DB::table('user')
-            ->where("email", $decoded->email)
-            ->first('is_admin');
-
-        if ($user->is_admin != 1) {
+        if (!$req->input("is_admin")) {
             abort(401, 'Unauthorized');
         }
 
@@ -93,13 +81,7 @@ class AuthController extends Controller
 
     public function updateAdmin(Request $req, $id)
     {
-        $decoded = JWT::decode($req->bearerToken(), new Key('desaku89ajs', 'HS256'));
-
-        $user = DB::table('user')
-            ->where("email", $decoded->email)
-            ->first('is_admin');
-
-        if ($user->is_admin != 1) {
+        if (!$req->input("is_admin")) {
             abort(401, 'Unauthorized');
         }
 
@@ -114,9 +96,7 @@ class AuthController extends Controller
 
     public function updateAdminProfile(Request $req)
     {
-        $decoded = JWT::decode($req->bearerToken(), new Key('desaku89ajs', 'HS256'));
-
-        DB::table('user')->where("email", $decoded->email)->update([
+        DB::table('user')->where("uuid", $req->input("user"))->update([
             "name" => $req->input("name"),
             "email" => $req->input("email"),
             "password" => $req->input("password"),

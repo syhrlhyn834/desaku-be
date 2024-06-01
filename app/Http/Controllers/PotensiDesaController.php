@@ -10,7 +10,25 @@ class PotensiDesaController extends Controller
 {
     public function getPotensiDesa(Request $req)
     {
-        $query = DB::table('potensi_desa')->join('kategori_potensi', 'potensi_desa.category', '=', 'kategori_potensi.uuid');
+        $total = DB::table('potensi_desa')->count();
+        $data = null;
+
+        if ($req->query('limit') && $req->query('page')) {
+            // pagination data
+            $offset = $req->query('page') * 5 - 5;
+
+            $data = DB::table('potensi_desa')
+                ->limit($req->query('limit'))
+                ->offset($offset);
+        } else if ($req->query('limit') && !$req->query('offset')) {
+            // latest news
+            $data = DB::table('potensi_desa')
+                ->limit($req->query('limit'));  
+        } else {
+            $data = DB::table('potensi_desa');
+        }
+
+        $query = $data->join('kategori_potensi', 'potensi_desa.category', '=', 'kategori_potensi.uuid');
 
         if ($req->query('category')) {
             $query = $query->where("kategori_potensi.slug", $req->query('category'));
@@ -30,7 +48,8 @@ class PotensiDesaController extends Controller
 
         return response()->json([
             "category_name" => $category->name ?? null,
-            "data" => $data
+            "data" => $data,
+            "total" => $total,
         ]);
     }
 

@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 
 // Authentication
 Route::post('/auth/login', [AuthController::class, 'login']);
+Route::post('/reset-password', [AuthController::class, 'resetPassword']);
+Route::post('/reset-password/verify', [AuthController::class, 'verifyResetPassword']);
 
 // Public
 Route::get('/visi', [ProfilDesaController::class, 'getVisi']);

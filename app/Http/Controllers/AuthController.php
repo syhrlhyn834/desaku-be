@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
 
 class AuthController extends Controller
 {
@@ -18,6 +21,10 @@ class AuthController extends Controller
             ->where("password", $req->input("password"))
             ->select('is_admin', "uuid")
             ->first();
+
+        if (!$user->uuid){
+            abort(403);
+        }
 
         $payload = [
             "user" => $user->uuid,
@@ -103,5 +110,59 @@ class AuthController extends Controller
         ]);
 
         return "Success update an admin";
+    }
+
+    public function resetPassword(Request $req)
+    {
+        $token = str_replace('-', '', uuid_create());
+
+        if (!DB::table('user')->where("email", $req->input('email'))->exists()){
+            abort(404);
+        }
+
+        DB::table('reset_password')->insert([
+            "uuid" => uuid_create(),
+            "token" => $token,
+            "email" => $req->input("email"),
+            "created_at" => Carbon::now(),
+            "expired_at" => Carbon::now()->addHour(),
+        ]);
+
+        $mail = new PHPMailer(true);
+
+        try {
+            $mail->isSMTP();
+            $mail->Host = 'smtp.gmail.com';
+            $mail->SMTPAuth = true;
+            $mail->Username = 'ichsanfadhil67@gmail.com';
+            $mail->Password = env('MAIL_PASSWORD');
+            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $mail->Port = 587;
+
+            // Recipients
+            $mail->setFrom('ichsanfadhil67@gmail.com', 'Muhammad Ichsan');
+            $mail->addAddress($req->input('email'));
+
+            // Content
+            $mail->isHTML(true);
+            $mail->Subject = 'Reset Password Desaku';
+            $mail->Body = 'Hello ' . $req->input('email') . ' ! <br> <br> Silahkan reset password anda melalui link di bawah ini, link dibawah akan kadaluarsa dalam 1 jam. <br> <br>' . env('APP_FE_URL') . '/auth/forgot-password?token=' . $token;
+
+            $mail->send();
+            echo 'Message has been sent';
+        } catch (Exception $e) {
+            echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+        }
+    }
+
+    public function verifyResetPassword(Request $req)
+    {
+        $reset_token = DB::table('reset_password')->where("token", $req->input("token"))->first(["expired_at", "email"]);
+
+        if (Carbon::now()->lt(Carbon::parse($reset_token->expired_at))) {
+            DB::table('user')->where("email", $reset_token->email)->update(["password" => $req->input("password")]);
+        }
+
+        return "Success reset password";
     }
 }

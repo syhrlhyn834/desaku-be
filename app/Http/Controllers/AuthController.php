@@ -134,13 +134,13 @@ class AuthController extends Controller
             $mail->isSMTP();
             $mail->Host = 'smtp.gmail.com';
             $mail->SMTPAuth = true;
-            $mail->Username = 'ichsanfadhil67@gmail.com';
+            $mail->Username = env('MAIL_EMAIL');
             $mail->Password = env('MAIL_PASSWORD');
             $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
             $mail->Port = 587;
 
             // Recipients
-            $mail->setFrom('ichsanfadhil67@gmail.com', 'Muhammad Ichsan');
+            $mail->setFrom(env('MAIL_EMAIL'), 'Muhammad Ichsan');
             $mail->addAddress($req->input('email'));
 
             // Content

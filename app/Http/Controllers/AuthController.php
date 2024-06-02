@@ -140,12 +140,12 @@ class AuthController extends Controller
             $mail->Port = 587;
 
             // Recipients
-            $mail->setFrom(env('MAIL_EMAIL'), 'Desaku');
+            $mail->setFrom(env('MAIL_EMAIL'), env('APP_NAME'));
             $mail->addAddress($req->input('email'));
 
             // Content
             $mail->isHTML(true);
-            $mail->Subject = 'Reset Password Desaku';
+            $mail->Subject = 'Reset Password ' .  env('APP_NAME');
             $mail->Body = 'Hello ' . $req->input('email') . ' ! <br> <br> Silahkan reset password anda melalui link di bawah ini, link dibawah akan kadaluarsa dalam 1 jam. <br> <br>' . env('APP_FE_URL') . '/auth/forgot-password?token=' . $token;
 
             $mail->send();

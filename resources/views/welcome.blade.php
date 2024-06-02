@@ -8,7 +8,7 @@
 </head>
 
 <body class="antialiased">
-    Selamat datang di API <?= {{ env('APP_NAME') }} ?>
+    Selamat datang di API <?= env('APP_NAME') ?>
 </body>
 
 </html>

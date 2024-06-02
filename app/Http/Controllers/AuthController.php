@@ -140,7 +140,7 @@ class AuthController extends Controller
             $mail->Port = 587;
 
             // Recipients
-            $mail->setFrom(env('MAIL_EMAIL'), 'Muhammad Ichsan');
+            $mail->setFrom(env('MAIL_EMAIL'), 'Desaku');
             $mail->addAddress($req->input('email'));
 
             // Content

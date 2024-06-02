@@ -148,7 +148,8 @@ class InformasiPublikController extends Controller
             $data = DB::table('pengumuman');
         }
 
-        $data = $data->orderBy('created_at', 'desc')->get();
+        $data = $data->join('user', 'pengumuman.user_id', '=', 'user.uuid');
+        $data = $data->orderBy('pengumuman.created_at', 'desc')->get();
 
         return response()->json([
             "data" => $data,
@@ -165,7 +166,7 @@ class InformasiPublikController extends Controller
 
     public function findAnnouncementBySlug($slug)
     {
-        $data = DB::table('pengumuman')->where("slug", $slug)->first();
+        $data = DB::table('pengumuman')->join('user', 'pengumuman.user_id', '=', 'user.uuid')->where("slug", $slug)->first();
 
         return response()->json($data);
     }
@@ -298,7 +299,8 @@ class InformasiPublikController extends Controller
             $data = DB::table('kegiatan');
         }
 
-        $data = $data->orderBy('created_at', 'desc')->get();
+        $data = $data->join('user', 'kegiatan.user_id', '=', 'user.uuid');
+        $data = $data->orderBy('kegiatan.created_at', 'desc')->get();
 
         return response()->json([
             "data" => $data,
@@ -315,7 +317,7 @@ class InformasiPublikController extends Controller
 
     public function findActivitiesBySlug($slug)
     {
-        $data = DB::table('kegiatan')->where("slug", $slug)->first();
+        $data = DB::table('kegiatan')->join('user', 'kegiatan.user_id', '=', 'user.uuid')->where("slug", $slug)->first();
 
         return response()->json($data);
     }

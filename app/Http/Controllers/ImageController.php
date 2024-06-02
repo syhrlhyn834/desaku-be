@@ -9,10 +9,14 @@ class ImageController extends Controller
 {
     public function upload(Request $request)
     {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            $image->storeAs('public', $imageName); // You can change the storage path as needed
+            echo $image->storeAs('public', $imageName); // You can change the storage path as needed
             return response()->json([
                 'data' => env('APP_URL') . "/storage/" . $imageName
             ]);

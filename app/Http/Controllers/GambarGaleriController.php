@@ -27,6 +27,7 @@ class GambarGaleriController extends Controller
             "uuid" => uuid_create(),
             "description" => $req->input("description"),
             "url" => $req->input("image"),
+            "user_id" => $req->input("user"),
         ]);
 
         return response()->json(['success' => true]);
@@ -34,6 +35,17 @@ class GambarGaleriController extends Controller
 
     public function updateImageGallery(Request $req, $id)
     {
+        if (
+            !DB::table('gambar_galeri')
+            ->where("user_id", $req->input('user'))
+            ->where("uuid", $id)
+            ->exists()
+
+            && !$req->input('is_admin')
+        ){
+            abort(403);
+        }
+
         DB::table('gambar_galeri')->where("uuid", $id)->update([
             "description" => $req->input("description"),
             "url" => $req->input("image"),

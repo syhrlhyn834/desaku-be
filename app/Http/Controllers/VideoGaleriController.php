@@ -40,6 +40,7 @@ class VideoGaleriController extends Controller
             "uuid" => uuid_create(),
             "description" => $req->input("description"),
             "url" => $req->input("video"),
+            "user_id" => $req->input("user"),
         ]);
 
         return response()->json(['success' => true]);

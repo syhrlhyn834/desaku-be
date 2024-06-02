@@ -23,7 +23,7 @@ class PotensiDesaController extends Controller
         } else if ($req->query('limit') && !$req->query('offset')) {
             // latest news
             $data = DB::table('potensi_desa')
-                ->limit($req->query('limit'));  
+                ->limit($req->query('limit'));
         } else {
             $data = DB::table('potensi_desa');
         }
@@ -79,6 +79,7 @@ class PotensiDesaController extends Controller
             "slug" => $req->input("slug"),
             "description" => $req->input("description"),
             "thumbnail" => $req->input("thumbnail"),
+            "user_id" => $req->input("user"),
             "content" => $req->input("content"),
             "created_at" => Carbon::now(),
         ]);
@@ -88,6 +89,17 @@ class PotensiDesaController extends Controller
 
     public function updatePotensiDesa(Request $req, $id)
     {
+        if (
+            !DB::table('potensi_desa')
+                ->where("user_id", $req->input('user'))
+                ->where("uuid", $id)
+                ->exists()
+
+            && !$req->input('is_admin')
+        ) {
+            abort(403);
+        }
+
         DB::table('potensi_desa')->where("uuid", $id)->update([
             "title" => $req->input("title"),
             "slug" => $req->input("slug"),
@@ -133,6 +145,17 @@ class PotensiDesaController extends Controller
 
     public function updatePotensiCategory(Request $req, $id)
     {
+        if (
+            !DB::table('kategori_potensi')
+                ->where("user_id", $req->input('user'))
+                ->where("uuid", $id)
+                ->exists()
+
+            && !$req->input('is_admin')
+        ) {
+            abort(403);
+        }
+
         $data = DB::table('kategori_potensi')->where("uuid", $id)->update([
             "name" => $req->input("name"),
             "slug" => $req->input("slug")
@@ -146,7 +169,8 @@ class PotensiDesaController extends Controller
         DB::table('kategori_potensi')->insert([
             "uuid" => uuid_create(),
             "name" => $req->input("name"),
-            "slug" => $req->input("slug")
+            "slug" => $req->input("slug"),
+            "user_id" => $req->input("user"),
         ]);
 
         return response()->json(['success' => true]);

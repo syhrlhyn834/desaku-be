@@ -78,8 +78,44 @@ class InformasiPublikController extends Controller
         return response()->json($data);
     }
 
+    public function addNews(Request $req)
+    {
+        DB::table('berita')->insert([
+            "uuid" => uuid_create(),
+            "title" => $req->input("title"),
+            "slug" => $req->input("slug"),
+            "description" => $req->input("description"),
+            "category_id" => $req->input("category_id"),
+            "content" => $req->input("content"),
+            "thumbnail" => $req->input("thumbnail"),
+            "user_id" => $req->input("user"),
+            "created_at" => Carbon::now(),
+            "updated_at" => Carbon::now(),
+        ]);
+
+        return response()->json(['success' => true]);
+    }
+
+    public function removeNews(Request $req, $id)
+    {
+        DB::table('berita')->where("uuid", $id)->delete();
+
+        return response()->json(['success' => true]);
+    }
+
     public function updateNews(Request $req, $id)
     {
+        if (
+            !DB::table('berita')
+                ->where("user_id", $req->input('user'))
+                ->where("uuid", $id)
+                ->exists()
+
+            && !$req->input('is_admin')
+        ) {
+            abort(403);
+        }
+
         $data = DB::table('berita')->where("uuid", $id)->update([
             "title" => $req->input("title"),
             "slug" => $req->input("slug"),
@@ -142,6 +178,7 @@ class InformasiPublikController extends Controller
             "slug" => $req->input("slug"),
             "description" => $req->input("description"),
             "content" => $req->input("content"),
+            "user_id" => $req->input("user"),
             "created_at" => Carbon::now(),
             "updated_at" => Carbon::now()
         ]);
@@ -151,6 +188,17 @@ class InformasiPublikController extends Controller
 
     public function updateAnnouncement(Request $req, $id)
     {
+        if (
+            !DB::table('pengumuman')
+                ->where("user_id", $req->input('user'))
+                ->where("uuid", $id)
+                ->exists()
+
+            && !$req->input('is_admin')
+        ) {
+            abort(403);
+        }
+
         $data = DB::table('pengumuman')->where("uuid", $id)->update([
             "title" => $req->input("title"),
             "description" => $req->input("description"),
@@ -165,31 +213,6 @@ class InformasiPublikController extends Controller
     public function removeAnnouncement(Request $req, $id)
     {
         DB::table('pengumuman')->where("uuid", $id)->delete();
-
-        return response()->json(['success' => true]);
-    }
-
-    public function addNews(Request $req)
-    {
-        DB::table('berita')->insert([
-            "uuid" => uuid_create(),
-            "title" => $req->input("title"),
-            "slug" => $req->input("slug"),
-            "description" => $req->input("description"),
-            "category_id" => $req->input("category_id"),
-            "content" => $req->input("content"),
-            "thumbnail" => $req->input("thumbnail"),
-            "user_id" => $req->input("user"),
-            "created_at" => Carbon::now(),
-            "updated_at" => Carbon::now(),
-        ]);
-
-        return response()->json(['success' => true]);
-    }
-
-    public function removeNews(Request $req, $id)
-    {
-        DB::table('berita')->where("uuid", $id)->delete();
 
         return response()->json(['success' => true]);
     }
@@ -218,6 +241,17 @@ class InformasiPublikController extends Controller
 
     public function updateNewsCategory(Request $req, $id)
     {
+        if (
+            !DB::table('kategori_berita')
+                ->where("user_id", $req->input('user'))
+                ->where("uuid", $id)
+                ->exists()
+
+            && !$req->input('is_admin')
+        ) {
+            abort(403);
+        }
+
         $data = DB::table('kategori_berita')->where("uuid", $id)->update([
             "name" => $req->input("name"),
             "slug" => $req->input("slug")
@@ -231,6 +265,7 @@ class InformasiPublikController extends Controller
         DB::table('kategori_berita')->insert([
             "uuid" => uuid_create(),
             "name" => $req->input("name"),
+            "user_id" => $req->input("user"),
             "slug" => $req->input("slug")
         ]);
 
@@ -294,6 +329,7 @@ class InformasiPublikController extends Controller
             "description" => $req->input("description"),
             "content" => $req->input("content"),
             "thumbnail" => $req->input("thumbnail"),
+            "user_id" => $req->input("user"),
             "created_at" => Carbon::now(),
             "updated_at" => Carbon::now()
         ]);
@@ -303,6 +339,17 @@ class InformasiPublikController extends Controller
 
     public function updateActivities(Request $req, $id)
     {
+        if (
+            !DB::table('kegiatan')
+                ->where("user_id", $req->input('user'))
+                ->where("uuid", $id)
+                ->exists()
+
+            && !$req->input('is_admin')
+        ) {
+            abort(403);
+        }
+
         $data = DB::table('kegiatan')->where("uuid", $id)->update([
             "title" => $req->input("title"),
             "description" => $req->input("description"),

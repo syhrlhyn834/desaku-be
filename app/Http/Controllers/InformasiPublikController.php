@@ -299,7 +299,7 @@ class InformasiPublikController extends Controller
             $data = DB::table('kegiatan');
         }
 
-        $data = $data->join('user', 'kegiatan.user_id', '=', 'user.uuid')->select("pengumuman.*", "user.email", "user.name");
+        $data = $data->join('user', 'kegiatan.user_id', '=', 'user.uuid')->select("kegiatan.*", "user.email", "user.name");
         $data = $data->orderBy('kegiatan.created_at', 'desc')->get();
 
         return response()->json([

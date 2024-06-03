@@ -16,7 +16,7 @@ class ImageController extends Controller
         if ($request->hasFile('image')) {
             $image = $request->file('image');
             $imageName = time() . '.' . $image->getClientOriginalExtension();
-            var_dump($image->storeAs('public', $imageName)); // You can change the storage path as needed
+            $image->storeAs('public', $imageName); 
             return response()->json([
                 'data' => env('APP_URL') . "/storage/" . $imageName
             ]);

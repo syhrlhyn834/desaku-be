@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -41,6 +42,7 @@ class VideoGaleriController extends Controller
             "description" => $req->input("description"),
             "url" => $req->input("video"),
             "user_id" => $req->input("user"),
+            "created_at" => Carbon::now(),
         ]);
 
         return response()->json(['success' => true]);

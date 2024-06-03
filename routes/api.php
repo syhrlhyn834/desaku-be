@@ -114,7 +114,7 @@ Route::middleware(['jwt'])->group(function () {
     Route::delete('/jabatan/{id}', [JabatanController::class, 'removeJabatan']);
     Route::delete('/image-gallery/{id}', [GambarGaleriController::class, 'removeImageGallery']);
     Route::delete('/video-gallery/{id}', [VideoGaleriController::class, 'removeVideoGallery']);
-    Route::delete('/lembaga', [LembagaController::class, 'removeLembaga']);
+    Route::delete('/lembaga/{id}', [LembagaController::class, 'removeLembaga']);
 
     // admin profile
     Route::get('/admin', [AuthController::class, 'findAdmin']);

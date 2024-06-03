@@ -148,7 +148,7 @@ class InformasiPublikController extends Controller
             $data = DB::table('pengumuman');
         }
 
-        $data = $data->join('user', 'pengumuman.user_id', '=', 'user.uuid');
+        $data = $data->join('user', 'pengumuman.user_id', '=', 'user.uuid')->select("pengumuman.*", "user.email", "user.name");
         $data = $data->orderBy('pengumuman.created_at', 'desc')->get();
 
         return response()->json([
@@ -299,7 +299,7 @@ class InformasiPublikController extends Controller
             $data = DB::table('kegiatan');
         }
 
-        $data = $data->join('user', 'kegiatan.user_id', '=', 'user.uuid');
+        $data = $data->join('user', 'kegiatan.user_id', '=', 'user.uuid')->select("pengumuman.*", "user.email", "user.name");
         $data = $data->orderBy('kegiatan.created_at', 'desc')->get();
 
         return response()->json([

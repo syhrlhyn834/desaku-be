@@ -9,9 +9,15 @@ class ImageController extends Controller
 {
     public function upload(Request $request)
     {
-        $request->validate([
-            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:5048',
+        $validator = \Validator::make($request->all(), [
+            'image' => 'required|image|mimes:jpeg,png,jpg|max:6048',
         ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => 'Forbidden. Invalid file.',
+            ], 403);
+        }
 
         if ($request->hasFile('image')) {
             $image = $request->file('image');

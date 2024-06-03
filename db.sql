@@ -13,7 +13,7 @@ USE `desaku`;
 CREATE TABLE IF NOT EXISTS `alamat` (
   `name` text,
   `value` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `alamat` (`name`, `value`) VALUES
 	('Desa', 'Medalsari'),
@@ -32,7 +32,7 @@ CREATE TABLE IF NOT EXISTS `berita` (
   `user_id` char(50) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `berita` (`uuid`, `title`, `slug`, `description`, `category_id`, `thumbnail`, `content`, `user_id`, `created_at`, `updated_at`) VALUES
 	('36466e7b-463b-4743-8abc-e7c5c7f7ebba', 'Warga Desa Medalsari, Pangkalan Sambut Sukacita Bakti Sosial Jum’at Berkah KABAR', 'warga-desa-medalsari-pangkalan-sambut-sukacita-bakti-sosial-jumat-berkah-kabar', 'Kegiatan Jum’at Berkah oleh KABAR itu pun disambut antusias warga.\nHadir dalam acara itu aparatur desa, Tokoh Masyarakat dan ratusan masyarakat Desa Medalsari.\nPerlu diketahui, bahwa suksesnya acara itu pun tidak terlepas dari dukungan beberapa donatur seperti Syarif Hidayat dan Eva Prahesti.', '859f39a9-b0c4-4811-a741-2e2eb8473205', 'https://api.arl.my.id/storage/1717342027.png', '<p><strong style="color: rgb(58, 58, 58);">KARAWANG, BASKOMNEWS –</strong><span style="color: rgb(58, 58, 58);">&nbsp;Berlangsung di Kampung Tipar Kolot RT 02/01, Desa Medalsari Kecamatan Pangkalan, Karya Barudak Karawang (KABAR) Gelar Jum’at Berkah. Jum’at (24/5).</span></p><p>Kegiatan Jum’at Berkah oleh KABAR itu pun disambut antusias warga. Hadir dalam acara itu aparatur desa, Tokoh Masyarakat dan ratusan masyarakat Desa Medalsari.</p><p>Perlu diketahui, bahwa suksesnya acara itu pun tidak terlepas dari dukungan beberapa donatur seperti Syarif Hidayat dan Eva Prahesti. Dalam pesannya, Ketua KABAR, Isep Machfudin menerangkan kegiatan Jum’at Berkah itu bertujuan sebagai ajang silahturahmi. Selain dengan anggota, juga dengan masyarakat Desa Medalsari.&nbsp; Lalu, sambung Ketua KABAR memberitahukan keberadaan KABAR di tengah-tengah masyarakat. </p><p>“Semoga keberadaan kami diakui oleh masyarakat serta di dukung oleh masyarakat, “harap Isep Machfudin. Isep berharap acara itu menjadi agenda berkelanjutan dan berharap bisa kembali melaksanakan kembali aksi bakti sosial.</p><p>“Mudah-mudahan keberadaan kami di sini bisa bermanfaat oleh masyarakat, ” Ujar Isep.</p><p>&nbsp;“Dan kami pun berharap KABAR bisa lebih maju untuk memberikan pengabdian dan pemberdayaan bagi masyarakat,” Harap Isep.</p><p><br></p><p>Terpisah, Ketua RT 02/02 Desa Medalsari, Jamin Jamaludin mengapresiasi kegiatan yang telah dilaksanakan oleh KABAR. Ia pun berharap dengan pemberian materi yang telah di sumbangkan oleh KABAR bisa menjadi amal kebaikan serta memberikan keberkahan.</p><p>&nbsp;</p><p>“Terimakasih kepada KABAR yang telah melaksanakan Jum’at Berkah di wilayah ki, semoga KABAR selalu diberikan kelancaran dan keberkahan, ” Tutupnya.&nbsp;<strong>(YFN/DD)</strong></p>', '376738e4-d859-42a5-b50c-728fab99dd49', '2024-06-02 15:20:21', '2024-06-02 15:44:08'),
@@ -46,7 +46,7 @@ CREATE TABLE IF NOT EXISTS `footer` (
   `profile` text,
   `address` text,
   `copyright` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `footer` (`uuid`, `profile`, `address`, `copyright`) VALUES
 	('1', 'Website desa dibangun sebagai bagian dari SISTEM INFORMASI DESA yang berfungsi sebagai portal informasi, transparansi, dan sosialisasi pemerintah terkait tata kelola pembangunan kawasan perdesaan (pembangunan, pembinaan dan pemberdayaan) yang dirasakan langsung oleh masyarakat sebagai penerima manfaat.', 'Desa Medalsari, Kecamatan Pangkalan, Kabupaten Karawang, Jawa Barat, Indonesia.', '2024 © Desa Medalsari, Kecamatan Pangkalan, Kabupaten Karawang, Jawa Barat.');
@@ -57,7 +57,7 @@ CREATE TABLE IF NOT EXISTS `gambar_beranda` (
   `url` varchar(200) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `gambar_beranda` (`uuid`, `description`, `url`, `created_at`, `updated_at`) VALUES
 	('3160b133-c0cb-4446-8579-f64c34a62f9d', 'Penyuluhan Imunisasi', 'https://api.arl.my.id/storage/1715851406.jpg', '2024-05-16 09:55:44', '2024-05-16 09:55:44'),
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `gambar_galeri` (
   `url` char(200) DEFAULT NULL,
   `user_id` char(50) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `gambar_galeri` (`uuid`, `description`, `url`, `user_id`, `created_at`) VALUES
 	('fd227f58-2301-4aaa-8603-5201d1cf71cf', 'Tegalwaru', 'https://api.arl.my.id/storage/1717343756.jpg', '376738e4-d859-42a5-b50c-728fab99dd49', '2024-06-03 20:12:44'),
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `header` (
   `logo` text,
   `site_name` varchar(200) DEFAULT NULL,
   `description` varchar(200) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `header` (`uuid`, `no_telp`, `email`, `logo`, `site_name`, `description`) VALUES
 	('1', '022-3123-222', 'admin@medalsari.desa.id', 'https://api.arl.my.id/storage/1717341638.png', 'Desa Medalsari', 'Provinsi Jawa Barat');
@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `jabatan` (
   `name` varchar(200) DEFAULT NULL,
   `order` tinyint DEFAULT NULL,
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `jabatan` (`uuid`, `name`, `order`) VALUES
 	('bfb5092c-d32a-4da8-a754-3de6ea51271f', 'Ketua RW', 2),
@@ -109,7 +109,7 @@ CREATE TABLE IF NOT EXISTS `kategori_berita` (
   `slug` char(200) DEFAULT NULL,
   `user_id` char(50) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `kategori_berita` (`uuid`, `name`, `slug`, `user_id`, `created_at`) VALUES
 	('859f39a9-b0c4-4811-a741-2e2eb8473205', 'Informasi Umum', 'informasi-umum', '376738e4-d859-42a5-b50c-728fab99dd49', '2024-05-31 13:20:44'),
@@ -121,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `kategori_potensi` (
   `slug` char(200) DEFAULT NULL,
   `user_id` char(50) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `kategori_potensi` (`uuid`, `name`, `slug`, `user_id`, `created_at`) VALUES
 	('1d41331a-eb37-4941-8d44-6b0e32671717', 'Potensi Peternakan', 'potensi-peternakan', '376738e4-d859-42a5-b50c-728fab99dd49', '2024-05-31 13:20:39'),
@@ -137,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `kegiatan` (
   `user_id` char(50) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `kegiatan` (`uuid`, `title`, `slug`, `description`, `thumbnail`, `content`, `user_id`, `created_at`, `updated_at`) VALUES
 	('49479db6-e9c3-4157-86c5-b5337f12dfbd', 'Unik, Ada Lampu Bangjo Khusus Unta di Tengah Gurun Pasir', 'hallo-guys', 'Jika berkunjung ke gurun pasir Kumtag di Dunhuang, Provinsi Gansu, China, jangan kaget', 'https://api.arl.my.id/storage/1717374249.jpg', '<p>Selama bulan Mei, menunggang unta merupakan kegiatan yang populer di tempat wisata Gunung Mingsha dan Mata Air Bulan Sabit di Gurun Kumtag. Saking ramainya unta yang berlalu-lalang, pemerintah setempat menempatkan lampu lalu lintas khusus unta untuk menghindari kemacetan lalu lintas.</p>', '376738e4-d859-42a5-b50c-728fab99dd49', '2024-05-15 14:00:41', '2024-06-03 03:58:38'),
@@ -155,7 +155,7 @@ CREATE TABLE IF NOT EXISTS `lembaga` (
   `profile` text,
   `image` text,
   `created_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `lembaga` (`uuid`, `slug`, `name`, `surname`, `visi`, `address`, `tugas`, `profile`, `image`, `created_at`) VALUES
 	('922df598-92b9-48b2-bd70-aefc5f94e1f0', 'joglo-muda', 'Joglo Muda', 'JM', '<p>WKWKW</p>', 'Jalan manggis sukabumi', '<p>asasd</p>', '<p><strong>Badan Permusyawaratan Desa (BPD)</strong>&nbsp;dalam Permendagri No.110/2016 Tugas Badan Permusyawaratan Desa (BPD) mempunyai fungsi, membahas dan menyepakati Rancangan Peraturan Desa bersama Kepala Desa, menampung dan menyalurkan aspirasi masyarakat Desa, dan melakukan pengawasan kinerja Kepala Desa. Selain melaksanakan fungsi diatas, Badan Permusyawaratan Desa juga mempunyai tugas sebagai berikut. Tugas Badan Permusyawaratan Desa:</p><p><br></p><ol><li>Menggali aspirasi masyarakat</li><li>Menampung aspirasi masyarakat</li><li>Mengelola aspirasi masyarakat</li><li>Menyalurkan aspirasi masyarakat</li><li>Menyelenggarakan musyawarah Tugas Badan Permusyawaratan Desa (BPD)</li><li>Menyelenggarakan musyawarah Desa</li><li>Membentuk panitia pemilihan Kepala Desa</li><li>Menyelenggarakan musyawarah Desa khusus untuk pemilihan Kepala Desa antarwaktu</li><li>Membahas dan menyepakati rancangan Peraturan Desa bersama Kepala Desa</li><li>Melaksanakan pengawasan terhadap kinerja Kepala Desa</li><li>Melakukan evaluasi laporan keterangan penyelenggaraan Pemerintahan Desa</li></ol><p>Menciptakan hubungan kerja yang harmonis dengan Pemerintah Desa dan lembaga Desa lainnya; dan melaksanakan tugas lain yang diatur dalam ketentuan peraturan perundang-undangan.</p><p><br></p>', 'https://api.arl.my.id/storage/1715254086.jpeg', '2024-05-24 06:28:20'),
@@ -172,7 +172,7 @@ CREATE TABLE IF NOT EXISTS `lokasi_desa` (
   `rt` char(50) DEFAULT NULL,
   `rw` char(50) DEFAULT NULL,
   `provinsi` char(50) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `lokasi_desa` (`uuid`, `desa`, `kecamatan`, `kabupaten`, `kelurahan`, `maps`, `rt`, `rw`, `provinsi`) VALUES
 	('1', 'Demangan', 'Selomartani', 'Sleman Barat', NULL, '<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63423.036076987206!2d107.180374!3d-6.5292935!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69a3f6e5d5c351%3A0xcbb6af6ec515730a!2sMedalsari%2C%20Kec.%20Pangkalan%2C%20Karawang%2C%20Jawa%20Barat!5e0!3m2!1sid!2sid!4v1717379498766!5m2!1sid!2sid" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>', '06', '06', 'Jawa Barat');
@@ -186,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `pengumuman` (
   `user_id` char(50) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `pengumuman` (`uuid`, `title`, `slug`, `description`, `content`, `user_id`, `created_at`, `updated_at`) VALUES
 	('49479db6-e9c3-4157-86c5-b5337f12dfbd', 'Unik, Ada Lampu Bangjo Khusus Unta di Tengah Gurun Pasir', 'unik-ada-lampu-bangjo-khusus-unta-di-tengah-gurun-pasir', 'Jika berkunjung ke gurun pasir Kumtag di Dunhuang, Provinsi Gansu, China, jangan kaget', '<p>Selama bulan Mei, menunggang unta merupakan kegiatan yang populer di tempat wisata Gunung Mingsha dan Mata Air Bulan Sabit di Gurun Kumtag. Saking ramainya unta yang berlalu-lalang, pemerintah setempat menempatkan lampu lalu lintas khusus unta untuk menghindari kemacetan lalu lintas.</p>', '376738e4-d859-42a5-b50c-728fab99dd49', '2024-05-15 14:00:41', '2024-05-30 15:16:52'),
@@ -207,7 +207,7 @@ CREATE TABLE IF NOT EXISTS `perangkat_desa` (
   `image` text,
   `created_at` datetime DEFAULT NULL,
   KEY `job_id` (`job_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `perangkat_desa` (`uuid`, `name`, `slug`, `nip`, `visi`, `job`, `job_id`, `image`, `created_at`) VALUES
 	('8ba9ce9f-49f2-4846-a81f-9bc3109576f4', 'Erick Tohir', 'erick-tohir', '03923289', '<p>Visi adalah suatu pandangan ke depan tentang arah, target, cita-cita, tujuan pada suatu lembaga, perusahaan, organisasi dan lain-lain, lebih sederhananya visi dapat di artikan sebagai suatu tujuan perusahaan, organisasi atau lembaga, mengenai apa yang harus dilakukan untuk mencapai tujuannya di masa yang akan datang atau masa depan.</p><p><br></p><p>aMisi adalah suatu pernyataan tentang apa yang harus dikerjakan oleh perusahaan, organisasi atau lembaga sebagai upaya untuk mewujudkan Visi. Misi dapat di artikan sebagai tujuan dan alasan mengapa perusahaan, organisasi atau lembaga itu dibuat. Misi akan memberikan arah sekaligus batasan-batasan dalam proses pencapaian tujuan.</p>', 'Wakil Ketua RT', '36a93a82-7781-4c41-80b4-0e0c3e1840b0', 'https://api.arl.my.id/storage/1716288981.jpeg', '2024-05-22 01:52:36'),
@@ -224,7 +224,7 @@ CREATE TABLE IF NOT EXISTS `potensi_desa` (
   `user_id` char(50) DEFAULT NULL,
   `content` text,
   `created_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `potensi_desa` (`uuid`, `title`, `slug`, `description`, `category`, `thumbnail`, `user_id`, `content`, `created_at`) VALUES
 	('5e61400f-4afc-4d21-9156-196c6eedf6ee', 'Panen Sawah Kebun Jagung di Daerah Utara', 'panen-sawah-kebun-jagung-di-daerah-utara', 'Berkembangnya dunia teknologi membuat masyarakat kota dan desa semakin dekat. Ditambah makin meningkatnya sarana infrastruktur, menjadikan desa menyimpan potensi bisnis yang tak kalah menarik. Nah, disini akan dijabarkan', 'e861055a-89b7-484f-9a0d-c30ea358deef', 'https://api.arl.my.id/storage/1715853488.jpg', '376738e4-d859-42a5-b50c-728fab99dd49', '<p>Wadu</p>', '2024-05-26 14:29:23'),
@@ -239,7 +239,7 @@ CREATE TABLE IF NOT EXISTS `profil_desa` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`uuid`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `profil_desa` (`uuid`, `visi`, `tentang`, `sejarah`, `created_at`, `updated_at`) VALUES
 	('1', '<p><strong>VISI : “ Terwujudnya Masyarakat Pangkalan yang aman tertib, maju, demokratis, dan berdayaguna dengan bertumpu pada sumber daya manusia yang berkualitas”</strong> </p><p>TUJUAN DAN SASARAN </p><p><strong>Misi 1. “Meningkatkan kualitas kenerja pelayanan publik lingkup kecamatan” </strong></p><p>Tujuan : a. Meningkatkan kapasitas kelembagaan dan ketatalaksanaan kecamatan; </p><p>b. Memberikan pelayanan administrasi public yang telah dilaksanakan di kecamatan; </p><p>Sasaran: a. Meningkatkan kapasitas SDM aparatur; </p><p>b. Terpenuhinya kebutuhan sarana dan prasarana perkantoran; </p><p>c. Terpenuhinya kebutuhan administrasi perkantoran;</p><p>d. Terselenggaranya administrasi kependudukan, perijinan terbatas dan kegiatan administrasi lainnya sesuai penugasan. </p><p><br></p><p><strong>Misi 2. “Meningkatkan kualitas fungsi koordinasi penyelenggaraan pemerintahan umum lingkup kecamatan” </strong></p><p>Tujuan: a. Mengembangkan pola koordinasi, pemerintahan dan pembangunan antar instansi di wilayah kecamatan; </p><p>b. Meningkatkan pelaksanaan fasilitas penyelenggaraan pemerintahan desa dan pembangunan pedesaan; </p><p>Sasaran: a. Meningkatnya koordinasi, itegritas, sinergritas dan singkronisasi penyelenggaraan fungsi pemerintahan dan pembangunan diwilayah kecamatan; </p><p>b. Meningkatkan kapasitas kelembagaan dan kinerja penyelenggaraan pemerintah desa dan pembangunan pedesaan. </p><p><br></p><p><strong>Misi 3. “Meningkatkan Pemberdayaan Masyarakat” </strong></p><p>Tujuan: Meningkatkan peran masyarakat dan lembaga kemasyarakatan di wilayah kecamatan Sasaran: a. Meningkatnya aktivitas sosial dan keagamaan di masyarakat; </p><p>b. Mendorong terciptanya pembangunan daerah di wilayah kecamatan. 1.1 STRATEGI DAN KEBIJAKAN Misi 1. “Meningkatkan kualitas kenerja pelayanan publik lingkup kecamatan” </p><p>Strategi : a. Pengembangan konpentensi aparatur kecamatan; </p><p>b. Pengadaan sarana dan prasarana perkantoran; </p><p>c. Penyediaan administrasi pelayanan perkantoran; </p><p>d. Penyediaan pelayanan administrasi publik sesuai pendelegasian dari bupati. </p><p>Kebijakan: a. Mengikutsertakan aparatur kecamatan dalam pelaksanaan kegiatan bintek/diklat/workshop/sosialiasasi; </p><p>b. Melaksanakan pengadaan sesuai rencana kebutuhan barang; </p><p>c. Menyediakan kebutuhan administrasi pelayanan perkantoran; </p><p>d. Pelayanan administrasi publik sesuai standar dan prosedur yang berlaku. </p><p><br></p><p><strong>Misi 2. “Meningkatkan kualitas fungsi koordinasi penyelenggaraan pemerintahan umum lingkup kecamatan” </strong></p><p>Strategi : a. Penyelenggaraan koordinasi integrasi sinergritas dan singkronisasi kegiatan pemerintahan umum ditingkat wilayah; </p><p>b. Pembinaan administrasi, kelembagaan dan SDM penyelenggara pemerintah desa. </p><p>Kebijakan: a. Mengoptimalkan peran kecamatan dalam penyelenggaraan kegiatan pemerintahan umum; </p><p>b. Meningkatkan konpentensi SDM penyelenggara pemerintah desa; </p><p>c. Penyelenggaraan tertib administrasi pemerintah desa. </p><p><br></p><p><strong>Misi 3. “Meningkatkan pemberdayaan masyarakat” </strong></p><p>Strategi : a. Fasilitas dan pembinaan kegiatan sosial dan keagamaan di masyarakat; </p><p>b. Pelaksanaan penyusunan perencanaan pembangunan secara partisipatif di wilayah kecamatan. </p><p>Kebijakan: a. Menyediakan, fasilitasi dan stimulasi bagi terselenggaranya kegiatan sosial dan keagamaan di masyarakat; </p><p>b. Meningkatkan kualitas proses dan hasil penyusunan rencana pembangunan wilayah kecamatan.&nbsp;</p>', '<p><span style="color: rgb(32, 33, 36);">Desa Medalsari merupakan&nbsp;</span><span style="background-color: rgb(211, 227, 253);">salah satu desa yeng memiliki objek wisata alam</span><span style="color: rgb(32, 33, 36);">, Desa Medalsari berada di Kecamatan Pangkalan Kabupaten Karawang, terletak 43 km dari kota Karawang dan 14 km jarak dari Kecamatan pangkalan. Desa Medalsari memiliki luas ±1.471.38 Ha dan memiliki jumlah penduduk sebanyak 3790 jiwa.</span></p><p><span style="color: rgb(112, 117, 122);">27 Des 2023.</span></p>', '<p><strong>Desa Medalsari </strong>merupakan salah satu desa yang berada di Kecamatan Pangkalan, Kabupaten Karawang, Jawa Barat. Untuk memberikan gambaran lebih jelas tentang sejarah desa ini, beberapa poin penting dapat diuraikan sebagai berikut:</p><p><br></p><p><strong>Asal Usul dan Nama Desa</strong></p><p>Nama Medalsari berasal dari dua kata dalam bahasa Sunda, yaitu "medal" yang berarti muncul atau lahir, dan "sari" yang berarti inti atau esensi. Dengan demikian, Medalsari dapat diartikan sebagai "lahirnya esensi" atau "munculnya inti". Nama ini kemungkinan besar mencerminkan harapan atau filosofi masyarakat setempat tentang desa ini.</p><p><br></p><p><strong>Sejarah Pembentukan</strong></p><p>Desa Medalsari kemungkinan dibentuk sebagai hasil pemekaran dari desa atau wilayah yang lebih besar pada masa lalu. Seperti banyak desa lainnya di Indonesia, proses pembentukan desa ini mungkin dipengaruhi oleh faktor-faktor seperti pertumbuhan populasi, kebutuhan administratif, dan pengelolaan sumber daya alam.</p><p><br></p><p><strong>Perkembangan Ekonomi dan Sosial</strong></p><p>Selama perkembangannya, Desa Medalsari mengalami perubahan dan perkembangan di berbagai aspek:</p><p>- Pertanian: Sebagian besar penduduk Desa Medalsari mungkin bekerja sebagai petani, dengan komoditas utama berupa padi, sayuran, dan tanaman palawija lainnya.</p><p>- Perkebunan dan Kehutanan: Karena terletak di daerah yang mungkin memiliki potensi alam berupa hutan atau lahan perkebunan, sektor ini juga bisa menjadi sumber penghidupan bagi warga desa.</p><p>- Kehidupan Sosial dan Budaya: Tradisi dan budaya Sunda sangat mungkin masih kental di desa ini, dengan adat istiadat dan kegiatan sosial yang mencerminkan nilai-nilai kearifan lokal.</p><p><br></p><p><strong>Infrastruktur dan Fasilitas Umum</strong></p><p>Seiring berjalannya waktu, pembangunan infrastruktur seperti jalan, fasilitas pendidikan, dan layanan kesehatan di Desa Medalsari terus mengalami peningkatan. Pemerintah daerah maupun desa berupaya untuk menyediakan fasilitas yang memadai bagi warganya.</p><p><br></p><p><strong>Peran Pemerintah dan Swadaya Masyarakat</strong></p><p>Pemerintah desa bersama masyarakat berperan aktif dalam membangun dan mengembangkan Desa Medalsari. Swadaya masyarakat seringkali menjadi motor penggerak utama dalam berbagai kegiatan pembangunan dan pengembangan desa.</p><p><br></p><p><strong>Tantangan dan Prospek</strong></p><p>Seperti desa-desa lainnya, Medalsari menghadapi tantangan seperti perubahan iklim, urbanisasi, dan perubahan sosial ekonomi. Namun, dengan potensi sumber daya alam dan semangat gotong royong masyarakat, desa ini memiliki prospek untuk terus berkembang dan meningkatkan kesejahteraan warganya.</p>', '2024-04-24 02:54:22', '2024-05-08 19:31:30');
@@ -250,7 +250,7 @@ CREATE TABLE IF NOT EXISTS `reset_password` (
   `token` char(50) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL,
   `expired_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `reset_password` (`uuid`, `email`, `token`, `created_at`, `expired_at`) VALUES
 	('fc49f462-f388-45c7-af0c-f709d6730c10', 'iniasya1@gmail.com', '02e0c861d6984f33885e92c857fa4b44', '2024-06-01 16:28:04', '2024-06-01 17:28:04'),
@@ -263,7 +263,7 @@ INSERT INTO `reset_password` (`uuid`, `email`, `token`, `created_at`, `expired_a
 CREATE TABLE IF NOT EXISTS `sosial_media` (
   `name` text,
   `link` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `sosial_media` (`name`, `link`) VALUES
 	('Instagram', 'asasas'),
@@ -274,7 +274,7 @@ INSERT INTO `sosial_media` (`name`, `link`) VALUES
 CREATE TABLE IF NOT EXISTS `struktur_organisasi` (
   `uuid` char(50) DEFAULT NULL,
   `content` text
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `struktur_organisasi` (`uuid`, `content`) VALUES
 	('1', '<p><span style="color: rgb(4, 12, 40);">Struktur organisasi</span><span style="color: rgb(32, 33, 36);">&nbsp;adalah sistem yang digunakan untuk mendefinisikan hierarki dalam sebuah&nbsp;</span><span style="color: rgb(4, 12, 40);">organisasi</span><span style="color: rgb(32, 33, 36);">&nbsp;dengan tujuan menetapkan cara sebuah&nbsp;</span><span style="color: rgb(4, 12, 40);">organisasi</span><span style="color: rgb(32, 33, 36);">&nbsp;dapat beroperasi, dan membantu&nbsp;</span><span style="color: rgb(4, 12, 40);">organisasi</span><span style="color: rgb(32, 33, 36);">&nbsp;tersebut dalam mencapai tujuan yang telah ditetapkan di masa depan. <span class="ql-cursor">﻿﻿</span></span></p>');
@@ -286,7 +286,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `password` char(50) DEFAULT NULL,
   `is_admin` tinyint DEFAULT NULL,
   `created_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `user` (`uuid`, `email`, `name`, `password`, `is_admin`, `created_at`) VALUES
 	('376738e4-d859-42a5-b50c-728fab99dd49', 'admin@desaku.id', 'Jokowi Dodo', '123', 1, '2024-05-31 13:19:43'),
@@ -299,7 +299,7 @@ CREATE TABLE IF NOT EXISTS `video_galeri` (
   `url` text,
   `user_id` char(50) DEFAULT NULL,
   `created_at` datetime DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB;
 
 INSERT INTO `video_galeri` (`uuid`, `description`, `url`, `user_id`, `created_at`) VALUES
 	('25ea88f1-e0a6-456e-8efa-88964a80c880', 'KABAR GELAR BAKTI SOSIAL JUMAT BERKAH DI DESA MEDALSARI PANGKALAN', 'https://www.youtube.com/embed/usoLOZPukXc?si=Dn9WexktsCRtzyKq', '376738e4-d859-42a5-b50c-728fab99dd49', '2024-06-03 20:12:35'),

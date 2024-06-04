@@ -11,7 +11,7 @@ class ImageController extends Controller
     {
         $fileExt = $request->file('image')->getClientOriginalExtension();
 
-        if ($request->file('image')->getSize() / (1024 * 1024) < 1){
+        if ($request->file('image')->getSize() / (1024 * 1024) > 1.1){
             return response()->json([
                 "code" => "FILE_SIZE"
             ], 403);

@@ -11,7 +11,7 @@ class ImageController extends Controller
     {
         $fileExt = $request->file('image')->getClientOriginalExtension();
 
-        if ($request->file('image')->getSize() / (1024 * 1024) < 1 || in_array($fileExt, ['jpg', 'jpeg', 'png'])){
+        if ($request->file('image')->getSize() / (1024 * 1024) < 1 || in_array($fileExt, ['webp', 'svg','jpg', 'jpeg', 'png'])){
             abort(403);
         }
 

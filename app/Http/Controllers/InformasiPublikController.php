@@ -300,7 +300,7 @@ class InformasiPublikController extends Controller
         }
 
         $data = $data->join('user', 'kegiatan.user_id', '=', 'user.uuid')->select("kegiatan.*", "user.email", "user.name");
-        $data = $data->orderBy('kegiatan.created_at', 'desc')->get();
+        $data = $data->orderBy('date', 'desc')->get();
 
         return response()->json([
             "data" => $data,
@@ -317,7 +317,9 @@ class InformasiPublikController extends Controller
 
     public function findActivitiesBySlug($slug)
     {
-        $data = DB::table('kegiatan')->join('user', 'kegiatan.user_id', '=', 'user.uuid')->where("slug", $slug)->first();
+        $data = DB::table('kegiatan')
+            ->join('user', 'kegiatan.user_id', '=', 'user.uuid')
+            ->where("slug", $slug)->first();
 
         return response()->json($data);
     }
@@ -332,6 +334,8 @@ class InformasiPublikController extends Controller
             "content" => $req->input("content"),
             "thumbnail" => $req->input("thumbnail"),
             "user_id" => $req->input("user"),
+            "date" => $req->input("date"),
+            "location" => $req->input("location"),
             "created_at" => Carbon::now(),
             "updated_at" => Carbon::now()
         ]);
@@ -356,6 +360,8 @@ class InformasiPublikController extends Controller
             "title" => $req->input("title"),
             "description" => $req->input("description"),
             "thumbnail" => $req->input("thumbnail"),
+            "date" => $req->input("date"),
+            "location" => $req->input("location"),
             "content" => $req->input("content"),
             "updated_at" => Carbon::now()
         ]);

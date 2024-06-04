@@ -10,9 +10,29 @@ class GambarGaleriController extends Controller
 {
     public function getImageGallery(Request $req)
     {
-        $data =  DB::table('gambar_galeri')->limit($req->query('limit'))->orderBy('created_at', 'desc')->get();
+        $total = DB::table('gambar_galeri')->count();
 
-        return response()->json($data);
+        if ($req->query('limit') && $req->query('page')) {
+            // pagination data
+            $offset = $req->query('page') * $req->query('limit') - $req->query('limit');
+
+            $data = DB::table('gambar_galeri')
+                ->limit($req->query('limit'))
+                ->offset($offset);
+        } else if ($req->query('limit') && !$req->query('offset')) {
+            // latest news
+            $data = DB::table('gambar_galeri')
+                ->limit($req->query('limit'));
+        } else {
+            $data = DB::table('gambar_galeri');
+        }
+
+        $data = $data->orderBy('created_at', 'desc')->get();
+
+        return response()->json([
+            "data" => $data,
+            "total" => $total,
+        ]);
     }
 
     public function findImageGallery($id)
